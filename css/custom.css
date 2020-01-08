@@ -32,3 +32,6 @@
 .sidebar-nav {
     background: #343434;
 }
+.sidebar-nav .preview {
+    color: #ccc;
+}
