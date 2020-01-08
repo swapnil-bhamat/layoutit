@@ -36,20 +36,19 @@
     </button>
     <a class="navbar-brand" href="#">
       <img src="./img/favicon.png">
-      ibootstrap
-      <span class="label label-default">BETA</span>
+      Bootstrap
     </a>
   </div>
   <div class="collapse navbar-collapse">
 
-    <ul class="nav pull-right">
+    <!-- <ul class="nav pull-right">
       <li>
 
         <div class="btn-group btn-donate pull-right"></div>
 
         <div class="btn-group">
           <a class="btn btn-xs btn-primary active" href="./"><i class="glyphicon-globe glyphicon"></i>
-            中文
+            English
           </a>
           <button role="button" data-toggle="modal" data-target="#feedbackModal" id="feedback"
                   class="btn btn-xs btn-primary active"><i class="glyphicon-comment glyphicon"></i>
@@ -57,7 +56,7 @@
           </button>
         </div>
       </li>
-    </ul>
+    </ul> -->
     <ul class="nav" id="menu-layoutit">
       <li>
         <div class="btn-group" data-toggle="buttons-radio">
@@ -225,7 +224,7 @@
           </li>
         </ul>
 
-        <ul class="nav nav-list accordion-group">
+        <!-- <ul class="nav nav-list accordion-group">
           <li class="nav-header">
             <i class="glyphicon glyphicon-plus"></i>
             CSS
@@ -238,7 +237,6 @@
 
                 <div class="popover-content">
                   Drag your component to your grid column and set the style. See:
-                  <!--将组件元素拖放入你需要放入的栅格列中。之后，你可以设置该元素的样式。如果你需要了解更多内容，请访问-->
                   <a target="_blank" href="http://getbootstrap.com/css/">CSS.</a>
                 </div>
               </div>
@@ -780,7 +778,7 @@
               </div>
             </div>
           </li>
-        </ul>
+        </ul> -->
 
         <ul class="nav nav-list accordion-group">
           <li class="nav-header">
@@ -812,7 +810,7 @@
 								drag
 							</span>
               <div class="preview">Header</div>
-              <div class="view">
+              <div class="view" id="header-top">
                <img src="./img/header.png" class="img-responsive">
               </div>
             </div>
@@ -826,7 +824,7 @@
 								drag
 							</span>
               <div class="preview">Special Offers</div>
-              <div class="view">
+              <div class="view" id="special-offers">
                <img src="./img/offers.png" class="img-responsive">
               </div>
             </div>
@@ -840,7 +838,7 @@
 								drag
 							</span>
               <div class="preview">New Arrivals</div>
-              <div class="view">
+              <div class="view" id="new-arrivals">
                <img src="./img/new.png" class="img-responsive">
               </div>
             </div>
@@ -854,7 +852,7 @@
 								drag
 							</span>
               <div class="preview">Best Sellers</div>
-              <div class="view">
+              <div class="view" id="best-sellers">
                <img src="./img/best.png" class="img-responsive">
               </div>
             </div>
@@ -868,7 +866,7 @@
 								drag
 							</span>
               <div class="preview">Recommended Products</div>
-              <div class="view">
+              <div class="view" id="recommended-products">
                <img src="./img/recommended.png" class="img-responsive">
               </div>
             </div>
@@ -882,11 +880,78 @@
 								drag
 							</span>
               <div class="preview">Footer</div>
-              <div class="view">
+              <div class="view" id="footer">
                <img src="./img/footer.png" class="img-responsive">
               </div>
             </div>
-            
+            <div class="box box-element ui-draggable">
+              <a href="#close" class="remove label label-danger">
+                <i class="glyphicon glyphicon-remove"></i>
+                delete
+              </a>
+						<span class="drag label label-default">
+							<i class="glyphicon glyphicon-move"></i>
+							drag
+						</span>
+
+              <div class="preview">Carousel</div>
+              <div class="view">
+
+                <div class="carousel slide" id="myCarousel">
+                  <ol class="carousel-indicators">
+                    <li class="active" data-slide-to="0" data-target="#myCarousel"></li>
+                    <li data-slide-to="1" data-target="#myCarousel" class=""></li>
+                    <li data-slide-to="2" data-target="#myCarousel" class=""></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    <div class="item active">
+                      <img alt=""
+                           src="./img/1.png">
+
+                      <div class="carousel-caption">
+                        <h4>FRUITS</h4>
+
+                        <p>
+                          FRESH PRODUCTS FROM AROUND THE GLOBE.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <img alt=""
+                           src="./img/2.png">
+
+                      <div class="carousel-caption">
+                        <h4>ITALIAN</h4>
+
+                        <p>
+                          FRESH PRODUCTS FROM AROUND THE GLOBE.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <img alt=""
+                           src="./img/3.png">
+
+                      <div class="carousel-caption">
+                        <h4>FLOWERS</h4>
+
+                        <p>
+                          FRESH PRODUCTS FROM AROUND THE GLOBE.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                  </a>
+                  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                  </a>
+                </div>
+
+              </div>
+            </div>
             <!-- <div class="box box-element ui-draggable">
               <a href="#close" class="remove label label-danger">
                 <i class="glyphicon glyphicon-remove"></i>
@@ -1503,7 +1568,7 @@
           </li>
         </ul>
 
-        <ul class="nav nav-list accordion-group">
+        <!-- <ul class="nav nav-list accordion-group">
           <li class="nav-header">
             <i class="glyphicon glyphicon-plus"></i>
             JavaScript
@@ -1522,7 +1587,7 @@
             </div>
           </li>
           <li class="boxes mute" id="elmJS">
-            <!-- <div class="box box-element ui-draggable">
+            <div class="box box-element ui-draggable">
               <a href="#close" class="remove label label-danger">
                 <i class="glyphicon glyphicon-remove"></i>
                 delete
@@ -1785,7 +1850,7 @@
                 </div>
 
               </div>
-            </div> -->
+            </div>
             <div class="box box-element ui-draggable">
               <a href="#close" class="remove label label-danger">
                 <i class="glyphicon glyphicon-remove"></i>
@@ -1855,7 +1920,7 @@
               </div>
             </div>
           </li>
-        </ul>
+        </ul> -->
 
       </div>
     </div>

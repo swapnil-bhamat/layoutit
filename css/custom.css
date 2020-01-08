@@ -29,3 +29,9 @@
     display: block;
     padding-top: 0px;
 }
+.sidebar-nav {
+    background: #343434;
+}
+.sidebar-nav .preview {
+    color: #ccc;
+}
