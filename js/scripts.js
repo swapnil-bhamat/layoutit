@@ -1,15 +1,16 @@
+var webpage = "";
 function handleSaveLayout() {
   var e = $(".demo").html();
   if (e != window.demoHtml) {
     saveLayout();
-    window.demoHtml = e
+    window.demoHtml = e;
   }
 }
 function handleJsIds() {
   handleModalIds();
   handleAccordionIds();
   handleCarouselIds();
-  handleTabsIds()
+  handleTabsIds();
 }
 function handleAccordionIds() {
   var e = $(".demo #myAccordion");
@@ -17,27 +18,31 @@ function handleAccordionIds() {
   var n = "panel-" + t;
   var r;
   e.attr("id", n);
-  e.find(".panel").each(function (e, t) {
+  e.find(".panel").each(function(e, t) {
     r = "panel-element-" + randomNumber();
-    $(t).find(".panel-title").each(function (e, t) {
-      $(t).attr("data-parent", "#" + n);
-      $(t).attr("href", "#" + r)
-    });
-    $(t).find(".panel-collapse").each(function (e, t) {
-      $(t).attr("id", r)
-    })
-  })
+    $(t)
+      .find(".panel-title")
+      .each(function(e, t) {
+        $(t).attr("data-parent", "#" + n);
+        $(t).attr("href", "#" + r);
+      });
+    $(t)
+      .find(".panel-collapse")
+      .each(function(e, t) {
+        $(t).attr("id", r);
+      });
+  });
 }
 function handleCarouselIds() {
   var e = $(".demo #myCarousel");
   var t = randomNumber();
   var n = "carousel-" + t;
   e.attr("id", n);
-  e.find(".carousel-indicators li").each(function (e, t) {
-    $(t).attr("data-target", "#" + n)
+  e.find(".carousel-indicators li").each(function(e, t) {
+    $(t).attr("data-target", "#" + n);
   });
   e.find(".left").attr("href", "#" + n);
-  e.find(".right").attr("href", "#" + n)
+  e.find(".right").attr("href", "#" + n);
 }
 function handleModalIds() {
   var e = $(".demo #myModalLink");
@@ -46,120 +51,164 @@ function handleModalIds() {
   var r = "modal-" + t;
   e.attr("id", r);
   e.attr("href", "#" + n);
-  e.next().attr("id", n)
+  e.next().attr("id", n);
 }
 function handleTabsIds() {
   var e = $(".demo #myTabs");
   var t = randomNumber();
   var n = "tabs-" + t;
   e.attr("id", n);
-  e.find(".tab-pane").each(function (e, t) {
+  e.find(".tab-pane").each(function(e, t) {
     var n = $(t).attr("id");
     var r = "panel-" + randomNumber();
     $(t).attr("id", r);
-    $(t).parent().parent().find("a[href=#" + n + "]").attr("href", "#" + r)
-  })
+    $(t)
+      .parent()
+      .parent()
+      .find("a[href=#" + n + "]")
+      .attr("href", "#" + r);
+  });
 }
 function randomNumber() {
-  return randomFromInterval(1, 1e6)
+  return randomFromInterval(1, 1e6);
 }
 function randomFromInterval(e, t) {
-  return Math.floor(Math.random() * (t - e + 1) + e)
+  return Math.floor(Math.random() * (t - e + 1) + e);
 }
 function gridSystemGenerator() {
-  $(".lyrow .preview input").bind("keyup", function () {
+  $(".lyrow .preview input").bind("keyup", function() {
     var e = 0;
     var t = "";
     var n = false;
-    var r = $(this).val().split(" ", 12);
-    $.each(r, function (r, i) {
+    var r = $(this)
+      .val()
+      .split(" ", 12);
+    $.each(r, function(r, i) {
       if (!n) {
         if (parseInt(i) <= 0) n = true;
         e = e + parseInt(i);
-        t += '<div class="col-md-' + i + ' column"></div>'
+        t += '<div class="col-md-' + i + ' column"></div>';
       }
     });
     if (e == 12 && !n) {
-      $(this).parent().next().children().html(t);
-      $(this).parent().prev().show()
+      $(this)
+        .parent()
+        .next()
+        .children()
+        .html(t);
+      $(this)
+        .parent()
+        .prev()
+        .show();
     } else {
-      $(this).parent().prev().hide()
+      $(this)
+        .parent()
+        .prev()
+        .hide();
     }
-  })
+  });
 }
 function configurationElm(e, t) {
-  $(".demo").delegate(".configuration > a", "click", function (e) {
+  $(".demo").delegate(".configuration > a", "click", function(e) {
     e.preventDefault();
-    var t = $(this).parent().next().next().children();
+    var t = $(this)
+      .parent()
+      .next()
+      .next()
+      .children();
     $(this).toggleClass("active");
-    t.toggleClass($(this).attr("rel"))
+    t.toggleClass($(this).attr("rel"));
   });
-  $(".demo").delegate(".configuration .dropdown-menu a", "click", function (e) {
+  $(".demo").delegate(".configuration .dropdown-menu a", "click", function(e) {
     e.preventDefault();
-    var t = $(this).parent().parent();
-    var n = t.parent().parent().next().next().children();
+    var t = $(this)
+      .parent()
+      .parent();
+    var n = t
+      .parent()
+      .parent()
+      .next()
+      .next()
+      .children();
     t.find("li").removeClass("active");
-    $(this).parent().addClass("active");
+    $(this)
+      .parent()
+      .addClass("active");
     var r = "";
-    t.find("a").each(function () {
-      r += $(this).attr("rel") + " "
+    t.find("a").each(function() {
+      r += $(this).attr("rel") + " ";
     });
     t.parent().removeClass("open");
     n.removeClass(r);
-    n.addClass($(this).attr("rel"))
-  })
+    n.addClass($(this).attr("rel"));
+  });
 }
 function removeElm() {
-  $(".demo").delegate(".remove", "click", function (e) {
+  $(".demo").delegate(".remove", "click", function(e) {
     e.preventDefault();
-    $(this).parent().remove();
+    $(this)
+      .parent()
+      .remove();
     if (!$(".demo .lyrow").length > 0) {
-      clearDemo()
+      clearDemo();
     }
-  })
+  });
 }
 function clearDemo() {
-  $(".demo").empty()
+  $(".demo").empty();
 }
 function removeMenuClasses() {
-  $("#menu-layoutit li button").removeClass("active")
+  $("#menu-layoutit li button").removeClass("active");
 }
 function changeStructure(e, t) {
-  $("#download-layout ." + e).removeClass(e).addClass(t)
+  $("#download-layout ." + e)
+    .removeClass(e)
+    .addClass(t);
 }
 function cleanHtml(e) {
-  $(e).parent().append($(e).children().html())
+  $(e)
+    .parent()
+    .append(
+      $(e)
+        .children()
+        .html()
+    );
 }
 function downloadLayoutSrc() {
   var e = "";
-  $("#download-layout").children().html($(".demo").html());
+  $("#download-layout")
+    .children()
+    .html($(".demo").html());
   var t = $("#download-layout").children();
   t.find(".preview, .configuration, .drag, .remove").remove();
   t.find(".lyrow").addClass("removeClean");
   t.find(".box-element").addClass("removeClean");
-  t.find(".lyrow .lyrow .lyrow .lyrow .lyrow .removeClean").each(function () {
-    cleanHtml(this)
+  t.find(".lyrow .lyrow .lyrow .lyrow .lyrow .removeClean").each(function() {
+    cleanHtml(this);
   });
-  t.find(".lyrow .lyrow .lyrow .lyrow .removeClean").each(function () {
-    cleanHtml(this)
+  t.find(".lyrow .lyrow .lyrow .lyrow .removeClean").each(function() {
+    cleanHtml(this);
   });
-  t.find(".lyrow .lyrow .lyrow .removeClean").each(function () {
-    cleanHtml(this)
+  t.find(".lyrow .lyrow .lyrow .removeClean").each(function() {
+    cleanHtml(this);
   });
-  t.find(".lyrow .lyrow .removeClean").each(function () {
-    cleanHtml(this)
+  t.find(".lyrow .lyrow .removeClean").each(function() {
+    cleanHtml(this);
   });
-  t.find(".lyrow .removeClean").each(function () {
-    cleanHtml(this)
+  t.find(".lyrow .removeClean").each(function() {
+    cleanHtml(this);
   });
-  t.find(".removeClean").each(function () {
-    cleanHtml(this)
+  t.find(".removeClean").each(function() {
+    cleanHtml(this);
   });
   t.find(".removeClean").remove();
   $("#download-layout .column").removeClass("ui-sortable");
-  $("#download-layout .row-fluid").removeClass("clearfix").children().removeClass("column");
+  $("#download-layout .row-fluid")
+    .removeClass("clearfix")
+    .children()
+    .removeClass("column");
   if ($("#download-layout .container").length > 0) {
-    changeStructure("row-fluid", "row")
+    changeStructure("row-fluid", "row");
   }
   formatSrc = $.htmlClean($("#download-layout").html(), {
     format: true,
@@ -179,93 +228,141 @@ function downloadLayoutSrc() {
   });
   $("#download-layout").html(formatSrc);
   $("#downloadModal textarea").empty();
-  $("#downloadModal textarea").val(formatSrc)
+  $("#downloadModal textarea").val(formatSrc);
+  webpage = formatSrc;
+}
+
+function saveHtml() {
+  var cpath = window.location.href;
+  cpath = cpath.substring(0, cpath.lastIndexOf("/"));
+  webpage =
+    '<html>\n<head>\n<script type="text/javascript" src="' +
+    cpath +
+    '/js/jquery-2.0.0.min.js"></script>\n<script type="text/javascript" src="' +
+    cpath +
+    '/js/jquery-ui.js"></script>\n<link href="' +
+    cpath +
+    '/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">\n<script type="text/javascript" src="' +
+    cpath +
+    '/js/bootstrap.min.js"></script>\n</head>\n<body>\n' +
+    webpage +
+    "\n</body>\n</html>";
+  /* FM aka Vegetam Added the function that save the file in the directory Downloads. Work only to Chrome Firefox And IE*/
+  if (
+    navigator.appName == "Microsoft Internet Explorer" &&
+    window.ActiveXObject
+  ) {
+    var locationFile = location.href.toString();
+    var dlg = false;
+    with (document) {
+      ir = createElement("iframe");
+      ir.id = "ifr";
+      ir.location = "about.blank";
+      ir.style.display = "none";
+      body.appendChild(ir);
+      with (getElementById("ifr").contentWindow.document) {
+        open("text/html", "replace");
+        charset = "utf-8";
+        write(webpage);
+        close();
+        document.charset = "utf-8";
+        dlg = execCommand("SaveAs", false, locationFile + "webpage.html");
+      }
+      return dlg;
+    }
+  } else {
+    webpage = webpage;
+    var blob = new Blob([webpage], { type: "text/html;charset=utf-8" });
+    saveAs(blob, "webpage.html");
+  }
 }
 var currentDocument = null;
 var timerSave = 2e3;
 var demoHtml = $(".demo").html();
-$(window).resize(function () {
+$(window).resize(function() {
   $("body").css("min-height", $(window).height() - 90);
-  $(".demo").css("min-height", $(window).height() - 160)
+  $(".demo").css("min-height", $(window).height() - 160);
 });
-$(document).ready(function () {
+$(document).ready(function() {
   $("body").css("min-height", $(window).height() - 90);
   $(".demo").css("min-height", $(window).height() - 160);
   $(".demo, .demo .column").sortable({
     connectWith: ".column",
-    opacity: .35,
+    opacity: 0.35,
     handle: ".drag"
   });
   $(".sidebar-nav .lyrow").draggable({
     connectToSortable: ".demo",
     helper: "clone",
     handle: ".drag",
-    drag: function (e, t) {
-      t.helper.width(400)
+    drag: function(e, t) {
+      t.helper.width(400);
     },
-    stop: function (e, t) {
+    stop: function(e, t) {
       $(".demo .column").sortable({
-        opacity: .35,
+        opacity: 0.35,
         connectWith: ".column"
-      })
+      });
     }
   });
   $(".sidebar-nav .box").draggable({
     connectToSortable: ".column",
     helper: "clone",
     handle: ".drag",
-    drag: function (e, t) {
-      t.helper.width(400)
+    drag: function(e, t) {
+      t.helper.width(400);
     },
-    stop: function () {
-      handleJsIds()
+    stop: function() {
+      handleJsIds();
     }
   });
-  $("[data-target=#downloadModal]").click(function (e) {
+  $("[data-target=#downloadModal]").click(function(e) {
     e.preventDefault();
-    downloadLayoutSrc()
+    downloadLayoutSrc();
   });
-  $("#download").click(function () {
+  $("#download").click(function() {
     downloadLayout();
-    return false
+    return false;
   });
-  $("#downloadhtml").click(function () {
+  $("#downloadhtml").click(function() {
     downloadHtmlLayout();
-    return false
+    return false;
   });
-  $("#edit").click(function () {
+  $("#edit").click(function() {
     $("body").removeClass("devpreview sourcepreview");
     $("body").addClass("edit");
     removeMenuClasses();
     $(this).addClass("active");
-    return false
+    return false;
   });
-  $("#clear").click(function (e) {
+  $("#clear").click(function(e) {
     e.preventDefault();
-    clearDemo()
+    clearDemo();
   });
-  $("#devpreview").click(function () {
+  $("#devpreview").click(function() {
     $("body").removeClass("edit sourcepreview");
     $("body").addClass("devpreview");
     removeMenuClasses();
     $(this).addClass("active");
-    return false
+    return false;
   });
-  $("#sourcepreview").click(function () {
+  $("#sourcepreview").click(function() {
     $("body").removeClass("edit");
     $("body").addClass("devpreview sourcepreview");
     removeMenuClasses();
     $(this).addClass("active");
-    return false
+    return false;
   });
-  $(".nav-header").click(function () {
+  $(".nav-header").click(function() {
     $(".sidebar-nav .boxes, .sidebar-nav .rows").hide();
-    $(this).next().slideDown()
+    $(this)
+      .next()
+      .slideDown();
   });
   removeElm();
   configurationElm();
   gridSystemGenerator();
-  setInterval(function () {
-    handleSaveLayout()
-  }, timerSave)
-})
+  setInterval(function() {
+    handleSaveLayout();
+  }, timerSave);
+});
