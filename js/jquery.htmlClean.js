@@ -29,7 +29,7 @@ Use and distibution http://www.opensource.org/licenses/bsd-license.php
     options = $.extend({}, $.htmlClean.defaults, options);
     options.allowEmpty = tagAllowEmpty.concat(options.allowEmpty);
 
-    var tagsRE = /(<(\/)?(\w+:)?([\w]+)([^>]*)>)|<!--(.*?--)>/gi;
+    var tagsRE = /(<(\/)?(\w+:)?([\w-]+)([^>]*)>)|<!--(.*?--)>/gi;
     var attrsRE = /([\w\-]+)\s*=\s*(".*?"|'.*?'|[^\s>\/]*)/gi;
 
     var tagMatch;
@@ -269,6 +269,7 @@ Use and distibution http://www.opensource.org/licenses/bsd-license.php
         (options.removeTags.length == 0 ||
           $.inArray(element.tag.name, options.removeTags) == -1);
 
+      console.log(renderTag, element.tag.name, element.tag.render);
       if (!element.isRoot && renderTag) {
         // render opening tag
         output.push("<");
