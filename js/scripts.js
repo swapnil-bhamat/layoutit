@@ -2,7 +2,6 @@ var webpage = "";
 function handleSaveLayout() {
   var e = $(".demo").html();
   if (e != window.demoHtml) {
-    saveLayout();
     window.demoHtml = e;
   }
 }
@@ -212,9 +211,11 @@ function downloadLayoutSrc() {
   }
   formatSrc = $.htmlClean($("#download-layout").html(), {
     format: true,
+    //allowedTags: ["z-widget"],
     allowedAttributes: [
       ["id"],
       ["class"],
+      ["z-widget"],
       ["data-toggle"],
       ["data-target"],
       ["data-parent"],
