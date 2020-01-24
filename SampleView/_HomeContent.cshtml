@@ -1,0 +1,68 @@
+﻿@using Znode.Engine.WebStore.Agents
+@{
+    int portalId = PortalAgent.CurrentPortal.PortalId;
+}
+
+<div class="container-fluid">
+    <!--Home Page Slider Widget-->
+    <z-widget>@Html.WidgetPartialAjax("BannerSlider", "Slider", "555", ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(), portalId)</z-widget>
+</div>
+<div class="container">
+
+    <div class="row advertisement-banner" data-test-selector="divAdvertisementBanner">
+        <!--Advertisement Banner Widget-->
+        <h3 data-test-selector="lblAdvertisementBannerMsg">@Html.RenderMessage(WebStoreConstants.StoreSpecialsTitle)</h3>
+        <div data-test-selector="divAdvertisementBanner">
+            <z-widget>
+                @Html.WidgetPartialAjax("OfferBanner", "AdvertisementBanner", "110", ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(), portalId)
+            </z-widget>
+        </div>
+    </div>
+    <div class="row">
+        <div class="home-wide-promo" data-test-selector="lblStoreSpecials">
+            @Html.RenderMessage(WebStoreConstants.StoreSpecials)
+        </div>
+    </div>
+    <div class="row">
+        <!--NewArrival Widget-->
+        <div data-test-selector="divNewArrivalWidget">
+            <z-widget>
+                @Html.WidgetPartialAjax("ProductList", "NewArrival", "666", ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(), portalId)
+            </z-widget>
+        </div>
+    </div>
+    <div class="row">
+        <!--BestSelling Widget-->
+        <div data-test-selector="divBestSellProductList">
+            <z-widget>
+                @Html.WidgetPartialAjax("ProductList", "HomePageSpecial", "667", ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(), portalId)
+            </z-widget>
+        </div>
+    </div>
+    <div class="row">
+        <!--BestSelling Widget-->
+        <div data-test-selector="divBestSellCategoryList">
+            <z-widget>
+                @Html.WidgetPartialAjax("CategoryList", "CategoryList", "1992", ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(), portalId)
+            </z-widget>
+        </div>
+    </div>
+    <div class="row">
+        <!--Brand Widget-->
+        <div data-test-selector="divBrandWidget">
+            <z-widget>
+                @Html.WidgetPartialAjax("BrandList", "BrandList", "9657", ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(), portalId)
+            </z-widget>
+        </div>
+    </div>
+    <div class="row">
+        <!--Recently View Product Widget-->
+        <div data-test-selector="divRecentlyViewWidget">
+            <z-widget>
+                @Html.WidgetPartialAjax("RecentlyViewProduct", "RecentlyViewProduct", "126", ZnodeCMSTypeofMappingEnum.PortalMapping.ToString())
+            </z-widget>
+        </div>
+    </div>
+
+</div>
+
