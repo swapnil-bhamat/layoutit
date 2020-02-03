@@ -215,7 +215,7 @@ function downloadLayoutSrc() {
     allowedAttributes: [
       ["id"],
       ["class"],
-      ["z-widget"],
+      ["data-test-selector"],
       ["data-toggle"],
       ["data-target"],
       ["data-parent"],
@@ -286,7 +286,7 @@ $(window).resize(function() {
 });
 $(document).ready(function() {
   $("body").css("min-height", $(window).height() - 90);
-  $(".demo").css("min-height", $(window).height() - 160);
+  $(".demo").css("min-height", $(window).height() - 90);
   $(".demo, .demo .column").sortable({
     connectWith: ".column",
     opacity: 0.35,

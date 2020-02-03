@@ -32,3 +32,7 @@
 .navbar-right {
   margin-right: 0px;
 }
+
+.d-none {
+  display: none !important;
+}

@@ -1,1963 +1,456 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="utf-8">
-  <title>zNode - Layout Creator</title>
-  <meta name="keywords" content="bootstrap,ibootstrap,bootstrap,layout">
-  <meta name="description" content="LayoutIt! draggable">
-
-  <!-- Le styles -->
-  <link href="./lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-  <link href="./css/layoutit.css" rel="stylesheet">
-  <link href="./css/custom.css" rel="stylesheet">
-
-  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-  <!--[if lt IE 9]>
-  <script src="./js/html5shiv.js"></script>
-  <![endif]-->
-
-  <script src="./lib/jquery/dist/jquery.min.js"></script>
-  <script src="./js/jquery-ui.js"></script>
-  <script src="./js/jquery.htmlClean.js"></script>
-  <script src="./js/FileSaver.js"></script>
-  <script src="./lib/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="./js/scripts.js"></script>
-
-</head>
-
-<body style="min-height: 824px;" class="edit">
-<div class="navbar navbar-inverse navbar-fixed-top navbar-layoutit">
-  <div class="navbar-header">
-    <a class="navbar-brand" href="#">
-      <img src="./img/favicon.png">
-      zNode Layout
-    </a>
-  </div>
-  <ul class="nav navbar-nav" id="menu-layoutit">
-    <li>
-      <div class="btn-group" data-toggle="buttons-radio">
-        <button type="button" id="edit" class="btn btn-primary btn-sm active"><i
-                class="glyphicon glyphicon-edit"></i>
-          Edit
-        </button>
-        <button type="button" class="btn btn-info btn-sm" id="sourcepreview">
-          <i class="glyphicon glyphicon-eye-open"></i>
-          Preview
-        </button>
-      </div>
-    </li>
-  </ul>
-  <ul class="nav navbar-nav navbar-right">
-    <li>
-      <div class="btn-group">
-        <button type="button" class="btn btn-primary btn-sm" id="button-download-modal" data-target="#downloadModal"
-                role="button" data-toggle="modal"><i class="glyphicon glyphicon-share"></i>
-          Share
-        </button>
-        <button class="btn btn-danger btn-sm" href="#clear" id="clear">
-          <i class="glyphicon glyphicon-trash"></i>
-          Clear
-        </button>
-      </div>
-    </li>
-  </ul>
-  <!--/.navbar-collapse -->
-</div>
-<!--/.navbar-fixed-top -->
-<div class="container">
-  <div class="row">
-    <div class="">
-      <div class="sidebar-nav">
-
-        <ul class="nav nav-list accordion-group">
-          <li class="nav-header">
-            <div class="pull-right popover-info">
-              <i class="glyphicon glyphicon-question-sign"></i>
-
-              <div class="popover fade right">
-                <div class="arrow"></div>
-                <h3 class="popover-title">help</h3>
-
-                <div class="popover-content">
-                  Set your grid layout here, each grid has 12 columns, divided by space. See:
-                  <!--在这里设置你的栅格布局, 栅格总数default为12, 用空格分割每列的栅格值, 如果您需要了解更多信息，请访问-->
-                  <a href="http://getbootstrap.com/css/#grid">BOOTSTRAP Grid System.</a>
-                </div>
-              </div>
-            </div>
-            <i class="glyphicon-plus glyphicon"></i>
-            Layout
-          </li>
-          <li class="rows" id="estRows">
-
-            <div class="lyrow ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon-remove glyphicon"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-
-              <div class="preview">
-                <input value="12" class="form-control" type="text"></div>
-              <div class="view">
-                <div class="row clearfix">
-                  <div class="col-md-12 column"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="lyrow ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon-remove glyphicon"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-
-              <div class="preview">
-                <input value="6 6" class="form-control" type="text"></div>
-              <div class="view">
-                <div class="row clearfix">
-                  <div class="col-md-6 column"></div>
-                  <div class="col-md-6 column"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="lyrow ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon-remove glyphicon"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-
-              <div class="preview">
-                <input value="8 4" class="form-control" type="text"></div>
-              <div class="view">
-                <div class="row clearfix">
-                  <div class="col-md-8 column"></div>
-                  <div class="col-md-4 column"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="lyrow ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon-remove glyphicon"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-
-              <div class="preview">
-                <input value="4 4 4" class="form-control" type="text"></div>
-              <div class="view">
-                <div class="row clearfix">
-                  <div class="col-md-4 column"></div>
-                  <div class="col-md-4 column"></div>
-                  <div class="col-md-4 column"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="lyrow ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon-remove glyphicon"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-
-              <div class="preview">
-                <input value="2 6 4" class="form-control" type="text"></div>
-              <div class="view">
-                <div class="row clearfix">
-                  <div class="col-md-2 column"></div>
-                  <div class="col-md-6 column"></div>
-                  <div class="col-md-4 column"></div>
-                </div>
-              </div>
-            </div>
-
-          </li>
-        </ul>
-        <ul class="nav nav-list accordion-group">
-          <li class="nav-header">
-            <i class="glyphicon glyphicon-plus"></i>
-            Components
-            <div class="pull-right popover-info">
-              <i class="glyphicon glyphicon-question-sign "></i>
-
-              <div class="popover fade right">
-                <div class="arrow"></div>
-                <h3 class="popover-title">help</h3>
-
-                <div class="popover-content">
-                  Drag the component to the grid columns and set the style.See:
-                  <a target="_blank" href="http://getbootstrap.com/components/">components.</a>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="boxes" id="elmComponents">
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-              <div class="preview">Header</div>
-              <div class="view">
-                <z-widget id="znode-header-top" class="img-responsive">
-                  <img src="http://localhost:3000/img/header.png" class="img-responsive">
-                </z-widget>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-              <div class="preview">Special Offers</div>
-              <div class="view">
-                <z-widget id="znode-special-offers" class="img-responsive">
-                  <img src="http://localhost:3000/img/offers.png" class="img-responsive">
-                </z-widget>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-              <div class="preview">New Arrivals</div>
-              <div class="view">
-                <z-widget id="znode-new-arrivals" class="img-responsive">
-                  <img src="http://localhost:3000/img/new.png" class="img-responsive">
-                </z-widget>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-              <div class="preview">Best Sellers</div>
-               <div class="view">
-                <z-widget id="znode-best-sellers" class="img-responsive">
-                  <img src="http://localhost:3000/img/best.png" class="img-responsive">
-                </z-widget>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-              <div class="preview">Recommended Products</div>
-              <div class="view">
-                <z-widget id="znode-recommended-products" class="img-responsive">
-                   <img src="http://localhost:3000/img/recommended.png" class="img-responsive">
-                </z-widget>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-              <div class="preview">Footer</div>
-              <div class="view">
-                <z-widget id="znode-footer" class="img-responsive">
-                   <img src="http://localhost:3000/img/footer.png" class="img-responsive">
-                </z-widget>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-						<span class="drag label label-default">
-							<i class="glyphicon glyphicon-move"></i>
-							drag
-						</span>
-
-              <div class="preview">Carousel</div>
-              <div class="view">
-                <div class="row znode-carousel">
-                  <div class="carousel slide">
-                  <ol class="carousel-indicators">
-                    <li class="active" data-slide-to="0" data-target="#myCarousel"></li>
-                    <li data-slide-to="1" data-target="#myCarousel" class=""></li>
-                    <li data-slide-to="2" data-target="#myCarousel" class=""></li>
-                  </ol>
-                  <div class="carousel-inner">
-                    <div class="item active">
-                      <img alt=""
-                           src="http://localhost:3000/img/1.png">
-
-                      <div class="carousel-caption">
-                        <h4>FRUITS</h4>
-
-                        <p>
-                          FRESH PRODUCTS FROM AROUND THE GLOBE.
-                        </p>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <img alt=""
-                           src="http://localhost:3000/img/2.png">
-
-                      <div class="carousel-caption">
-                        <h4>ITALIAN</h4>
-
-                        <p>
-                          FRESH PRODUCTS FROM AROUND THE GLOBE.
-                        </p>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <img alt=""
-                           src="http://localhost:3000/img/3.png">
-
-                      <div class="carousel-caption">
-                        <h4>FLOWERS</h4>
-
-                        <p>
-                          FRESH PRODUCTS FROM AROUND THE GLOBE.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                  </a>
-                  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                  </a>
-                </div>
-                </div>
-
-
-              </div></div>
-            </div>
-            <!-- <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-							<span class="configuration">
-								<span class="btn-group btn-group-xs">
-									<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
-                                      size
-                                      <span class="caret"></span>
-                                    </a>
-									<ul class="dropdown-menu">
-                                      <li class="active">
-                                        <a href="#" rel="">default</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="btn-group-lg">lg</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="btn-group-md">md</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="btn-group-sm">sm</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="btn-group-xs">xs</a>
-                                      </li>
-                                    </ul>
-								</span>
-								<a class="btn btn-xs btn-default" href="#" rel="btn-group-vertical">vertical</a>
-							</span>
-
-              <div class="preview">Button Group</div>
-              <div class="view">
-                <div class="btn-group">
-                  <button class="btn btn-default" type="button">
-                    <i class="glyphicon glyphicon-align-left"></i>
-                    left
-                  </button>
-                  <button class="btn btn-default" type="button">
-                    <i class="glyphicon glyphicon-align-center"></i>
-                    center
-                  </button>
-                  <button class="btn btn-default" type="button">
-                    <i class="glyphicon glyphicon-align-right"></i>
-                    right
-                  </button>
-                  <button class="btn btn-default" type="button">
-                    <i class="glyphicon glyphicon-align-justify"></i>
-                    justify
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-							<span class="configuration">
-								<a class="btn btn-xs btn-default" href="#" rel="dropup">dropup</a>
-							</span>
-
-              <div class="preview">Dropdown</div>
-              <div class="view">
-                <div class="btn-group">
-                  <button class="btn btn-default" contenteditable="true">Action</button>
-                  <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" contenteditable="true">
-                    <li>
-                      <a href="#">Option 1</a>
-                    </li>
-                    <li class="disabled">
-                      <a href="#">Option 2</a>
-                    </li>
-                    <li class="divider"><br></li>
-                    <li>
-                      <a href="#">Others</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-							<span class="configuration">
-								<span class="btn-group btn-group-xs">
-									<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
-                                      style
-                                      <span class="caret"></span>
-                                    </a>
-									<ul class="dropdown-menu">
-                                      <li class="">
-                                        <a href="#" rel="nav-tabs">default</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="nav-pills">pills</a>
-                                      </li>
-                                    </ul>
-								</span>
-								<a class="btn btn-xs btn-default" href="#" rel="nav-stacked">stacked</a>
-							</span>
-
-              <div class="preview">Navbar</div>
-              <div class="view">
-                <ul class="nav nav-tabs" contenteditable="true">
-                  <li class="active">
-                    <a href="#">Home</a>
-                  </li>
-                  <li>
-                    <a href="#">About</a>
-                  </li>
-                  <li class="disabled">
-                    <a href="#">Contact</a>
-                  </li>
-                  <li class="dropdown pull-right">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-                      Dropdown <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a href="#">Option</a>
-                      </li>
-                      <li>
-                        <a href="#">Settings</a>
-                      </li>
-                      <li>
-                        <a href="#">Others</a>
-                      </li>
-                      <li class="divider"><br></li>
-                      <li>
-                        <a href="#">Dividers</a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-
-              <div class="preview">Breadcrumbs</div>
-              <div class="view">
-
-                <ul class="breadcrumb">
-                  <li>
-                    <a href="#" contenteditable="true">Home</a>
-                  </li>
-                  <li>
-                    <a href="#" contenteditable="true">Library</a>
-                  </li>
-                  <li class="active" contenteditable="true">Data</li>
-                </ul>
-
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-							<span class="configuration">
-								<span class="btn-group btn-group-xs">
-									<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
-                                      size
-                                      <span class="caret"></span>
-                                    </a>
-									<ul class="dropdown-menu">
-                                      <li class="">
-                                        <a href="#" rel="pagination-lg">lg</a>
-                                      </li>
-                                      <li class="active">
-                                        <a href="#" rel="">md</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="pagination-sm">sm</a>
-                                      </li>
-                                    </ul>
-								</span>
-
-							</span>
-
-              <div class="preview">Pagination</div>
-              <div class="view">
-                <ul class="pagination" contenteditable="true">
-                  <li>
-                    <a href="#">Prev</a>
-                  </li>
-                  <li>
-                    <a href="#">1</a>
-                  </li>
-                  <li>
-                    <a href="#">2</a>
-                  </li>
-                  <li>
-                    <a href="#">3</a>
-                  </li>
-                  <li>
-                    <a href="#">4</a>
-                  </li>
-                  <li>
-                    <a href="#">5</a>
-                  </li>
-                  <li>
-                    <a href="#">Next</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-							<span class="configuration">
-								<span class="btn-group btn-group-xs">
-									<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
-                                      style
-                                      <span class="caret"></span>
-                                    </a>
-									<ul class="dropdown-menu">
-                                      <li class="">
-                                        <a href="#" rel="label-default">Default</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="label-primary">Primary</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="label-success">Success</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="label-info">Info</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="label-warning">Warning</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="label-danger">Danger</a>
-                                      </li>
-                                    </ul>
-								</span>
-							</span>
-
-              <div class="preview">label</div>
-              <div class="view">
-                <span class="label label-default" contenteditable="true">label</span>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-              <span class="configuration"></span>
-
-              <div class="preview">badge</div>
-              <div class="view">
-                <ul class="nav nav-pills" contenteditable="true">
-                  <li class="active">
-                    <a href="#">
-                      <span class="badge pull-right">42</span>
-                      Home
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <span class="badge pull-right">16</span>
-                      More
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-							<span class="configuration">
-								<a class="btn btn-xs btn-default" href="#" rel="well">Well</a>
-							</span>
-
-              <div class="preview">Jumbotron</div>
-              <div class="view">
-                <div class="jumbotron" contenteditable="true">
-                  <h1>Hello, world!</h1>
-
-                  <p>
-                    This is a template for a simple marketing or informational
-                    website. It includes a large callout called the hero unit and three
-                    supporting pieces of content. Use it as a starting point to create
-                    something more unique.
-                  </p>
-
-                  <p>
-                    <a class="btn btn-primary btn-large" href="#">Learn more</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-
-              <div class="preview">Page header</div>
-              <div class="view">
-                <div class="page-header">
-                  <h1 contenteditable="true">
-                    Example page header
-                    <small>Subtext for header</small>
-                  </h1>
-                </div>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-
-              <div class="preview">Text</div>
-              <div class="view">
-                <h2 contenteditable="true">Heading</h2>
-
-                <p contenteditable="true">
-                  Donec id elit non mi porta gravida at eget metus. Fusce
-                  dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-                  fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                  mollis euismod. Donec sed odio dui.
-                </p>
-
-                <p>
-                  <a class="btn" href="#" contenteditable="true">View details »</a>
-                </p>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-
-              <div class="preview">Thumbnails</div>
-              <div class="view">
-                <div class="row">
-                  <div class="col-md-4">
-                    <div class="thumbnail">
-                      <img alt="300x200"
-                           src="./img/default_006.jpg">
-
-                      <div class="caption" contenteditable="true">
-                        <h3>Thumbnail label</h3>
-
-                        <p>
-                          Cras justo odio, dapibus ac facilisis in, egestas eget
-                          quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor
-                          id nibh ultricies vehicula ut id elit.
-                        </p>
-
-                        <p>
-                          <a class="btn btn-primary" href="#">Action</a>
-                          <a class="btn" href="#">Action</a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="thumbnail">
-                      <img alt="300x200"
-                           src="./img/default.jpg">
-
-                      <div class="caption" contenteditable="true">
-                        <h3>Thumbnail label</h3>
-
-                        <p>
-                          Cras justo odio, dapibus ac facilisis in, egestas eget
-                          quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor
-                          id nibh ultricies vehicula ut id elit.
-                        </p>
-
-                        <p>
-                          <a class="btn btn-primary" href="#">Action</a>
-                          <a class="btn" href="#">Action</a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="thumbnail">
-                      <img alt="300x200"
-                           src="./img/default_007.jpg">
-
-                      <div class="caption" contenteditable="true">
-                        <h3>Thumbnail label</h3>
-
-                        <p>
-                          Cras justo odio, dapibus ac facilisis in, egestas eget
-                          quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor
-                          id nibh ultricies vehicula ut id elit.
-                        </p>
-
-                        <p>
-                          <a class="btn btn-primary" href="#">Action</a>
-                          <a class="btn" href="#">Action</a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-
-							<span class="configuration">
-
-								<a class="btn btn-xs btn-default" href="#" rel="progress-striped">striped</a>
-								<a class="btn btn-xs btn-default" href="#" rel="active">animation</a>
-							</span>
-
-              <div class="preview">Progress</div>
-              <div class="view">
-                <div class="progress">
-                  <div class="progress-bar progress-success" style="width: 60%;"></div>
-                </div>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-							<span class="configuration">
-								<a class="btn btn-xs btn-default" href="#" rel="well">嵌入</a>
-							</span>
-
-              <div class="preview">Media Object</div>
-              <div class="view">
-                <div class="media">
-                  <a href="#" class="pull-left">
-                    <img src="./img/default_002.jpg"
-                         class="media-object"></a>
-
-                  <div class="media-body" contenteditable="true">
-                    <h4 class="media-heading">Nested media heading</h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                    scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in
-                    vulputate at, tempus viverra turpis.
-                    <div class="media">
-                      <a href="#" class="pull-left">
-                        <img src="./img/default_002.jpg"
-                             class="media-object"></a>
-
-                      <div class="media-body" contenteditable="true">
-                        <h4 class="media-heading">Nested media heading</h4>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                        scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in
-                        vulputate at, tempus viverra turpis.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-              <span class="configuration"></span>
-
-              <div class="preview">List Group</div>
-              <div class="view">
-                <div class="list-group" contenteditable="true">
-                  <a href="#" class="list-group-item active">Home</a>
-
-                  <div class="list-group-item">List header</div>
-                  <div class="list-group-item">
-                    <h4 class="list-group-item-heading">List group item heading</h4>
-
-                    <p class="list-group-item-text">...</p>
-                  </div>
-                  <div class="list-group-item">
-                    <span class="badge">14</span>
-                    Help
-                  </div>
-                  <a class="list-group-item active">
-                    <span class="badge">14</span>
-                    Help
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-							<span class="configuration">
-								<span class="btn-group btn-group-xs">
-									<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
-                                      style
-                                      <span class="caret"></span>
-                                    </a>
-									<ul class="dropdown-menu">
-                                      <li class="">
-                                        <a href="#" rel="panel-default">Default</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="panel-primary">Primary</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="panel-success">Success</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="panel-info">Info</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="panel-warning">Warning</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="panel-danger">Danger</a>
-                                      </li>
-                                    </ul>
-								</span>
-
-							</span>
-
-              <div class="preview">Panels</div>
-              <div class="view">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h3 class="panel-title" contenteditable="true">Panel title</h3>
-                  </div>
-                  <div class="panel-body" contenteditable="true">Panel content</div>
-                  <div class="panel-footer" contenteditable="true">Panel footer</div>
-                </div>
-              </div>
-            </div> -->
-
-          </li>
-        </ul>
-
-        <!-- <ul class="nav nav-list accordion-group">
-          <li class="nav-header">
-            <i class="glyphicon glyphicon-plus"></i>
-            JavaScript
-            <div class="pull-right popover-info">
-              <i class="glyphicon glyphicon-question-sign "></i>
-
-              <div class="popover fade right">
-                <div class="arrow"></div>
-                <h3 class="popover-title">help</h3>
-
-                <div class="popover-content">
-                  Drag the components into the grid columns and set the style.See:
-                  <a target="_blank" href="http://getbootstrap.com/javascript/">JavaScript.</a>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="boxes mute" id="elmJS">
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-
-              <div class="preview">Modal</div>
-              <div class="view">
-                <a id="myModalLink" href="#myModalContainer" role="button" class="btn" data-toggle="modal">Open a modal</a>
-
-                <div class="modal fade" id="myModalContainer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                     aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title" id="myModalLabel" contenteditable="true">title</h4>
-                      </div>
-                      <div class="modal-body" contenteditable="true">content...</div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" contenteditable="true">close
-                        </button>
-                        <button type="button" class="btn btn-primary" contenteditable="true">save</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-							<span class="configuration">
-								<span class="btn-group btn-group-xs">
-									<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
-                                      position
-                                      <span class="caret"></span>
-                                    </a>
-									<ul class="dropdown-menu">
-                                      <li class="active">
-                                        <a href="#" rel="">default</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="navbar-static-top">Top</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="navbar-fixed-top">Fixed top</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="navbar-fixed-bottom">Fixed bottom</a>
-                                      </li>
-                                    </ul>
-								</span>
-								<a class="btn btn-xs btn-default" href="#" rel="navbar-inverse">inverse</a>
-
-						</span>
-
-              <div class="preview">Navbar</div>
-              <div class="view">
-
-                <nav class="navbar navbar-default" role="navigation">
-                  <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse"
-                            data-target="#bs-example-navbar-collapse-1">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Brand</a>
-                  </div>
-
-                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                      <li class="active">
-                        <a href="#">Link</a>
-                      </li>
-                      <li>
-                        <a href="#">Link</a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                          Dropdown <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a href="#">Action</a>
-                          </li>
-                          <li>
-                            <a href="#">Another action</a>
-                          </li>
-                          <li>
-                            <a href="#">Something else here</a>
-                          </li>
-                          <li class="divider"></li>
-                          <li>
-                            <a href="#">Separated link</a>
-                          </li>
-                          <li class="divider"></li>
-                          <li>
-                            <a href="#">One more separated link</a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                    <form class="navbar-form navbar-left" role="search">
-                      <div class="form-group">
-                        <input class="form-control" placeholder="Search" type="text"></div>
-                      <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
-                    <ul class="nav navbar-nav navbar-right">
-                      <li>
-                        <a href="#">Link</a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                          Dropdown
-                          <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a href="#">Action</a>
-                          </li>
-                          <li>
-                            <a href="#">Another action</a>
-                          </li>
-                          <li>
-                            <a href="#">Something else here</a>
-                          </li>
-                          <li class="divider"></li>
-                          <li>
-                            <a href="#">Separated link</a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </nav>
-
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-						<span class="drag label label-default">
-							<i class="glyphicon glyphicon-move"></i>
-							drag
-						</span>
-              <span class="configuration"></span>
-
-              <div class="preview">Tab</div>
-              <div class="view">
-                <div class="tabbable" id="myTabs">
-                  <ul class="nav nav-tabs">
-                    <li class="active">
-                      <a href="#tab1" data-toggle="tab" contenteditable="true">Section 1</a>
-                    </li>
-                    <li>
-                      <a href="#tab2" data-toggle="tab" contenteditable="true">Section 2</a>
-                    </li>
-                  </ul>
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="tab1">
-                      <p contenteditable="true">I'm in Section 1.</p>
-                    </div>
-                    <div class="tab-pane" id="tab2">
-                      <p contenteditable="true">Howdy, I'm in Section 2.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-						<span class="drag label label-default">
-							<i class="glyphicon glyphicon-move"></i>
-							drag
-						</span>
-						<span class="configuration">
-							<span class="btn-group btn-group-xs">
-								<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
-                                  style
-                                  <span class="caret"></span>
-                                </a>
-								<ul class="dropdown-menu">
-                                  <li class="">
-                                    <a href="#" rel="alert-success">Success</a>
-                                  </li>
-                                  <li class="">
-                                    <a href="#" rel="alert-info">Info</a>
-                                  </li>
-                                  <li class="">
-                                    <a href="#" rel="alert-warning">Warning</a>
-                                  </li>
-                                  <li class="">
-                                    <a href="#" rel="alert-danger">Danger</a>
-                                  </li>
-                                </ul>
-							</span>
-
-						</span>
-
-              <div class="preview">Alert</div>
-              <div class="view">
-                <div class="alert alert-success alert-dismissable" contenteditable="true">
-                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                  <h4>Alert!</h4>
-                  <strong>Warning!</strong>
-                  Best check yo self, you're not looking too good.
-                  <a href="#" class="alert-link">alert link</a>
-                </div>
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-						<span class="drag label label-default">
-							<i class="glyphicon glyphicon-move"></i>
-							drag
-						</span>
-
-              <div class="preview">Accordion</div>
-              <div class="view">
-                <div class="panel-group" id="myAccordion">
-                  <div class="panel panel-default">
-                    <div class="panel-heading">
-                      <a class="panel-title" data-toggle="collapse" data-parent="#myAccordion" href="#collapseOne"
-                         contenteditable="true">Collapsible Group Item #1</a>
-                    </div>
-                    <div id="collapseOne" class="panel-collapse collapse in">
-                      <div class="panel-body" contenteditable="true">Anim pariatur cliche...</div>
-                    </div>
-                  </div>
-                  <div class="panel panel-default">
-                    <div class="panel-heading">
-                      <a class="panel-title" data-toggle="collapse" data-parent="#myAccordion" href="#collapseTwo"
-                         contenteditable="true">Collapsible Group Item #2</a>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse">
-                      <div class="panel-body" contenteditable="true">Anim pariatur cliche...</div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-            <div class="box box-element ui-draggable">
-              <a href="#close" class="remove label label-danger">
-                <i class="glyphicon glyphicon-remove"></i>
-                delete
-              </a>
-						<span class="drag label label-default">
-							<i class="glyphicon glyphicon-move"></i>
-							drag
-						</span>
-
-              <div class="preview">Carousel</div>
-              <div class="view">
-
-                <div class="carousel slide" id="myCarousel">
-                  <ol class="carousel-indicators">
-                    <li class="active" data-slide-to="0" data-target="#myCarousel"></li>
-                    <li data-slide-to="1" data-target="#myCarousel" class=""></li>
-                    <li data-slide-to="2" data-target="#myCarousel" class=""></li>
-                  </ol>
-                  <div class="carousel-inner">
-                    <div class="item active">
-                      <img alt=""
-                           src="./img/1.png">
-
-                      <div class="carousel-caption">
-                        <h4>FRUITS</h4>
-
-                        <p>
-                          FRESH PRODUCTS FROM AROUND THE GLOBE.
-                        </p>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <img alt=""
-                           src="./img/2.png">
-
-                      <div class="carousel-caption">
-                        <h4>ITALIAN</h4>
-
-                        <p>
-                          FRESH PRODUCTS FROM AROUND THE GLOBE.
-                        </p>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <img alt=""
-                           src="./img/3.png">
-
-                      <div class="carousel-caption">
-                        <h4>FLOWERS</h4>
-
-                        <p>
-                          FRESH PRODUCTS FROM AROUND THE GLOBE.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                  </a>
-                  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                  </a>
-                </div>
-
-              </div>
-            </div>
-          </li>
-        </ul> -->
-
-      </div>
-    </div>
-    <div style="min-height: 754px;" class="demo ui-sortable">
-      <div class="lyrow">
-        <a href="#close" class="remove label label-danger">
-          <i class="glyphicon glyphicon-remove"></i>
-          delete
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>zNode - Layout Creator</title>
+    <meta name="keywords" content="bootstrap,ibootstrap,bootstrap,layout" />
+    <meta name="description" content="LayoutIt! draggable" />
+
+    <!-- Le styles -->
+    <link href="./lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="./css/layoutit.css" rel="stylesheet" />
+    <link href="./css/custom.css" rel="stylesheet" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="./js/html5shiv.js"></script>
+    <![endif]-->
+
+    <script src="./lib/jquery/dist/jquery.min.js"></script>
+    <script src="./js/jquery-ui.js"></script>
+    <script src="./js/jquery.htmlClean.js"></script>
+    <script src="./js/FileSaver.js"></script>
+    <script src="./lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./js/scripts.js"></script>
+  </head>
+
+  <body style="min-height: 824px;" class="edit">
+    <div class="navbar navbar-inverse navbar-fixed-top navbar-layoutit">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img src="./img/favicon.png" />
+          zNode Layout
         </a>
-			<span class="drag label label-default">
-				<i class="glyphicon glyphicon-move"></i>
-				drag
-			</span>
+      </div>
+      <ul class="nav navbar-nav" id="menu-layoutit">
+        <li>
+          <div class="btn-group" data-toggle="buttons-radio">
+            <button
+              type="button"
+              id="edit"
+              class="btn btn-primary btn-sm active"
+            >
+              <i class="glyphicon glyphicon-edit"></i>
+              Edit
+            </button>
+            <button
+              type="button"
+              class="btn btn-info btn-sm"
+              id="sourcepreview"
+            >
+              <i class="glyphicon glyphicon-eye-open"></i>
+              Preview
+            </button>
+          </div>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-primary btn-sm"
+              id="button-download-modal"
+              data-target="#downloadModal"
+              role="button"
+              data-toggle="modal"
+            >
+              <i class="glyphicon glyphicon-share"></i>
+              Share
+            </button>
+            <button class="btn btn-danger btn-sm" href="#clear" id="clear">
+              <i class="glyphicon glyphicon-trash"></i>
+              Clear
+            </button>
+          </div>
+        </li>
+      </ul>
+      <!--/.navbar-collapse -->
+    </div>
+    <!--/.navbar-fixed-top -->
+    <div class="container">
+      <div class="row">
+        <div class="">
+          <div class="sidebar-nav">
+            <ul class="nav nav-list accordion-group">
+              <li class="nav-header">
+                <div class="pull-right popover-info">
+                  <i class="glyphicon glyphicon-question-sign"></i>
 
-        <div class="preview">9 3</div>
-        <div class="view">
-          <div class="row clearfix">
-            <div class="col-md-12 column ui-sortable">
-              <div class="box box-element">
-                <a href="#close" class="remove label label-danger">
-                  <i class="glyphicon glyphicon-remove"></i>
-                  delete
-                </a>
-							<span class="drag label label-default">
-								<i class="glyphicon glyphicon-move"></i>
-								drag
-							</span>
-							<span class="configuration">
-								<span class="btn-group btn-group-xs">
-									<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
-                                      position
-                                      <span class="caret"></span>
-                                    </a>
-									<ul class="dropdown-menu">
-                                      <li class="active">
-                                        <a href="#" rel="">default</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="navbar-static-top">top</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="navbar-fixed-top">fixed top</a>
-                                      </li>
-                                      <li class="">
-                                        <a href="#" rel="navbar-fixed-bottom">fixed bottom</a>
-                                      </li>
-                                    </ul>
-								</span>
-								<a class="btn btn-xs btn-default" href="#" rel="navbar-inverse">inverse</a>
-                              <!--a class="btn btn-xs btn-default" href="#" rel="navbar-static-top">Static top</a>
-                          <a class="btn btn-mini" href="#" rel="navbar-fixed-top">Navbar fixed top</a>
-                          <a class="btn btn-mini" href="#" rel="navbar-fixed-bottom">Navbar fixed bottom</a-->
-						</span>
+                  <div class="popover fade right">
+                    <div class="arrow"></div>
+                    <h3 class="popover-title">help</h3>
 
-                <div class="preview">Navbar</div>
-                <div class="view">
-
-                  <nav class="navbar navbar-default" role="navigation">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                      <button type="button" class="navbar-toggle" data-toggle="collapse"
-                              data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                      </button>
-                      <a class="navbar-brand" href="#">Brand</a>
+                    <div class="popover-content">
+                      Set your grid layout here, each grid has 12 columns,
+                      divided by space. See:
+                      <a href="http://getbootstrap.com/css/#grid"
+                        >BOOTSTRAP Grid System.</a
+                      >
                     </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                      <ul class="nav navbar-nav">
-                        <li class="active">
-                          <a href="#">Link</a>
-                        </li>
-                        <li>
-                          <a href="#">Link</a>
-                        </li>
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Dropdown
-                            <b class="caret"></b>
-                          </a>
-                          <ul class="dropdown-menu">
-                            <li>
-                              <a href="#">Action</a>
-                            </li>
-                            <li>
-                              <a href="#">Another action</a>
-                            </li>
-                            <li>
-                              <a href="#">Something else here</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                              <a href="#">Separated link</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                              <a href="#">One more separated link</a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                      <form class="navbar-form navbar-left" role="search">
-                        <div class="form-group">
-                          <input class="form-control" placeholder="Search" type="text"></div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                      </form>
-                      <ul class="nav navbar-nav navbar-right">
-                        <li>
-                          <a href="#">Link</a>
-                        </li>
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Dropdown
-                            <b class="caret"></b>
-                          </a>
-                          <ul class="dropdown-menu">
-                            <li>
-                              <a href="#">Action</a>
-                            </li>
-                            <li>
-                              <a href="#">Another action</a>
-                            </li>
-                            <li>
-                              <a href="#">Something else here</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                              <a href="#">Separated link</a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </div>
-                    <!-- /.navbar-collapse -->
-                  </nav>
-
-                </div>
-              </div>
-              <div class="box box-element">
-                <a href="#close" class="remove label label-danger">
-                  <i class="glyphicon glyphicon-remove"></i>
-                  delete
-                </a>
-						<span class="drag label label-default">
-							<i class="glyphicon glyphicon-move"></i>
-							drag
-						</span>
-						<span class="configuration">
-							<a class="btn btn-xs btn-default active" href="#" rel="well">well</a>
-						</span>
-
-                <div class="preview">Jumbotron</div>
-                <div class="view">
-                  <div class="jumbotron well" contenteditable="true">
-                    <h1>Hello, world!</h1>
-
-                    <p>
-                      This is a template for a simple marketing or informational
-                      website. It includes a large callout called the hero unit and three
-                      supporting pieces of content. Use it as a starting point to create
-                      something more unique.
-                    </p>
-
-                    <p>
-                      <a class="btn btn-primary btn-large" href="#">Learn more</a>
-                    </p>
                   </div>
                 </div>
-              </div>
-            </div>
+                <i class="glyphicon-plus glyphicon"></i>
+                Layout
+              </li>
+              <li class="rows" id="estRows">
+                <div class="lyrow ui-draggable">
+                  <a href="#close" class="remove label label-danger">
+                    <i class="glyphicon-remove glyphicon"></i>
+                    delete
+                  </a>
+                  <span class="drag label label-default">
+                    <i class="glyphicon glyphicon-move"></i>
+                    drag
+                  </span>
+
+                  <div class="preview">
+                    <input value="12" class="form-control" type="text" />
+                  </div>
+
+                  <div class="view">
+                    <div class="row clearfix">
+                      <div class="col-md-12 column"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="lyrow ui-draggable">
+                  <a href="#close" class="remove label label-danger">
+                    <i class="glyphicon-remove glyphicon"></i>
+                    delete
+                  </a>
+                  <span class="drag label label-default">
+                    <i class="glyphicon glyphicon-move"></i>
+                    drag
+                  </span>
+
+                  <div class="preview">
+                    <input value="6 6" class="form-control" type="text" />
+                  </div>
+
+                  <div class="view">
+                    <div class="row clearfix">
+                      <div class="col-md-6 column"></div>
+                      <div class="col-md-6 column"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="lyrow ui-draggable">
+                  <a href="#close" class="remove label label-danger">
+                    <i class="glyphicon-remove glyphicon"></i>
+                    delete
+                  </a>
+                  <span class="drag label label-default">
+                    <i class="glyphicon glyphicon-move"></i>
+                    drag
+                  </span>
+
+                  <div class="preview">
+                    <input value="8 4" class="form-control" type="text" />
+                  </div>
+
+                  <div class="view">
+                    <div class="row clearfix">
+                      <div class="col-md-8 column"></div>
+                      <div class="col-md-4 column"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="lyrow ui-draggable">
+                  <a href="#close" class="remove label label-danger">
+                    <i class="glyphicon-remove glyphicon"></i>
+                    delete
+                  </a>
+                  <span class="drag label label-default">
+                    <i class="glyphicon glyphicon-move"></i>
+                    drag
+                  </span>
+
+                  <div class="preview">
+                    <input value="4 4 4" class="form-control" type="text" />
+                  </div>
+
+                  <div class="view">
+                    <div class="row clearfix">
+                      <div class="col-md-4 column"></div>
+                      <div class="col-md-4 column"></div>
+                      <div class="col-md-4 column"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="lyrow ui-draggable">
+                  <a href="#close" class="remove label label-danger">
+                    <i class="glyphicon-remove glyphicon"></i>
+                    delete
+                  </a>
+                  <span class="drag label label-default">
+                    <i class="glyphicon glyphicon-move"></i>
+                    drag
+                  </span>
+
+                  <div class="preview">
+                    <input value="2 6 4" class="form-control" type="text" />
+                  </div>
+
+                  <div class="view">
+                    <div class="row clearfix">
+                      <div class="col-md-2 column"></div>
+                      <div class="col-md-6 column"></div>
+                      <div class="col-md-4 column"></div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ul class="nav nav-list accordion-group">
+              <li class="nav-header">
+                <i class="glyphicon glyphicon-plus"></i>
+                Components
+                <div class="pull-right popover-info">
+                  <i class="glyphicon glyphicon-question-sign "></i>
+
+                  <div class="popover fade right">
+                    <div class="arrow"></div>
+                    <h3 class="popover-title">help</h3>
+
+                    <div class="popover-content">
+                      Drag the component to the grid columns and set the
+                      style.See:
+                      <a
+                        target="_blank"
+                        href="http://getbootstrap.com/components/"
+                        >components.</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="boxes" id="elmComponents">
+                <!-- Slider-->
+                <div class="box box-element ui-draggable">
+                  <a href="#close" class="remove label label-danger">
+                    <i class="glyphicon glyphicon-remove"></i>
+                    delete
+                  </a>
+                  <span class="drag label label-default">
+                    <i class="glyphicon glyphicon-move"></i>
+                    drag
+                  </span>
+                  <div class="preview">Slider</div>
+                  <div class="view">
+                    <div data-test-selector="divBannerSlider">
+                      <img
+                        src="http://localhost:3000/img/3.png"
+                        class="img-responsive"
+                      />
+                      <z-widget class="d-none">
+                        @Html.WidgetPartialAjax("BannerSlider", "Slider", "555",
+                        ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
+                        portalId)
+                      </z-widget>
+                    </div>
+                  </div>
+                </div>
+                <!--NewArrival Widget-->
+                <div class="box box-element ui-draggable">
+                  <a href="#close" class="remove label label-danger">
+                    <i class="glyphicon glyphicon-remove"></i>
+                    delete
+                  </a>
+                  <span class="drag label label-default">
+                    <i class="glyphicon glyphicon-move"></i>
+                    drag
+                  </span>
+                  <div class="preview">New Arrival</div>
+                  <div class="view">
+                    <div data-test-selector="divNewArrivalWidget">
+                      <img
+                        src="http://localhost:3000/img/header.png"
+                        class="img-responsive"
+                      />
+                      <z-widget class="d-none">
+                        @Html.WidgetPartialAjax("ProductList", "NewArrival",
+                        "666",
+                        ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
+                        portalId)
+                      </z-widget>
+                    </div>
+                  </div>
+                </div>
+                <div class="box box-element ui-draggable">
+                  <a href="#close" class="remove label label-danger">
+                    <i class="glyphicon glyphicon-remove"></i>
+                    delete
+                  </a>
+                  <span class="drag label label-default">
+                    <i class="glyphicon glyphicon-move"></i>
+                    drag
+                  </span>
+                  <div class="preview">Special Offers</div>
+                  <div class="view">
+                    <z-widget id="znode-special-offers" class="img-responsive">
+                      <img
+                        src="http://localhost:3000/img/offers.png"
+                        class="img-responsive"
+                      />
+                    </z-widget>
+                  </div>
+                </div>
+                <div class="box box-element ui-draggable">
+                  <a href="#close" class="remove label label-danger">
+                    <i class="glyphicon glyphicon-remove"></i>
+                    delete
+                  </a>
+                  <span class="drag label label-default">
+                    <i class="glyphicon glyphicon-move"></i>
+                    drag
+                  </span>
+                  <div class="preview">New Arrivals</div>
+                  <div class="view">
+                    <z-widget id="znode-new-arrivals" class="img-responsive">
+                      <img
+                        src="http://localhost:3000/img/new.png"
+                        class="img-responsive"
+                      />
+                    </z-widget>
+                  </div>
+                </div>
+                <div class="box box-element ui-draggable">
+                  <a href="#close" class="remove label label-danger">
+                    <i class="glyphicon glyphicon-remove"></i>
+                    delete
+                  </a>
+                  <span class="drag label label-default">
+                    <i class="glyphicon glyphicon-move"></i>
+                    drag
+                  </span>
+                  <div class="preview">Best Sellers</div>
+                  <div class="view">
+                    <z-widget id="znode-best-sellers" class="img-responsive">
+                      <img
+                        src="http://localhost:3000/img/best.png"
+                        class="img-responsive"
+                      />
+                    </z-widget>
+                  </div>
+                </div>
+                <div class="box box-element ui-draggable">
+                  <a href="#close" class="remove label label-danger">
+                    <i class="glyphicon glyphicon-remove"></i>
+                    delete
+                  </a>
+                  <span class="drag label label-default">
+                    <i class="glyphicon glyphicon-move"></i>
+                    drag
+                  </span>
+                  <div class="preview">Recommended Products</div>
+                  <div class="view">
+                    <z-widget
+                      id="znode-recommended-products"
+                      class="img-responsive"
+                    >
+                      <img
+                        src="http://localhost:3000/img/recommended.png"
+                        class="img-responsive"
+                      />
+                    </z-widget>
+                  </div>
+                </div>
+                <div class="box box-element ui-draggable">
+                  <a href="#close" class="remove label label-danger">
+                    <i class="glyphicon glyphicon-remove"></i>
+                    delete
+                  </a>
+                  <span class="drag label label-default">
+                    <i class="glyphicon glyphicon-move"></i>
+                    drag
+                  </span>
+                  <div class="preview">Footer</div>
+                  <div class="view">
+                    <z-widget id="znode-footer" class="img-responsive">
+                      <img
+                        src="http://localhost:3000/img/footer.png"
+                        class="img-responsive"
+                      />
+                    </z-widget>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
-      </div>
-      <div class="lyrow" style="display: block;">
-        <a href="#close" class="remove label label-danger">
-          <i class="glyphicon glyphicon-remove"></i>
-          delete
-        </a>
-		<span class="drag label label-default">
-			<i class="glyphicon glyphicon-move"></i>
-			drag
-		</span>
-
-        <div class="preview">4 4 4</div>
-        <div class="view">
-          <div class="row clearfix">
-            <div class="col-md-4 column ui-sortable" style="">
-              <div class="box box-element">
-                <a href="#close" class="remove label label-danger">
-                  <i class="glyphicon glyphicon-remove"></i>
-                  delete
-                </a>
-						<span class="drag label label-default">
-							<i class="glyphicon glyphicon-move"></i>
-							drag
-						</span>
-
-                <div class="preview">Text</div>
-                <div class="view">
-                  <h2 contenteditable="true">Heading</h2>
-
-                  <p contenteditable="true">
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-                    tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-                    massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                    euismod. Donec sed odio dui.
-                  </p>
-
-                  <p>
-                    <a class="btn" href="#" contenteditable="true">View details »</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 column ui-sortable" style="">
-              <div class="box box-element">
-                <a href="#close" class="remove label label-danger">
-                  <i class="glyphicon glyphicon-remove"></i>
-                  delete
-                </a>
-						<span class="drag label label-default">
-							<i class="glyphicon glyphicon-move"></i>
-							drag
-						</span>
-
-                <div class="preview">Text</div>
-                <div class="view">
-                  <h2 contenteditable="true">Heading</h2>
-
-                  <p contenteditable="true">
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-                    tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-                    massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                    euismod. Donec sed odio dui.
-                  </p>
-
-                  <p>
-                    <a class="btn" href="#" contenteditable="true">View details »</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 column ui-sortable" style="">
-              <div class="box box-element">
-                <a href="#close" class="remove label label-danger">
-                  <i class="glyphicon glyphicon-remove"></i>
-                  drag
-                </a>
-						<span class="drag label label-default">
-							<i class="glyphicon glyphicon-move"></i>
-							drag
-						</span>
-
-                <div class="preview">Text</div>
-                <div class="view">
-                  <h2 contenteditable="true">Heading</h2>
-
-                  <p contenteditable="true">
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-                    tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-                    massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                    euismod. Donec sed odio dui.
-                  </p>
-
-                  <p>
-                    <a class="btn" href="#" contenteditable="true">View details »</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div style="min-height: 800px;" class="demo ui-sortable"></div>
+        <!--/span-->
+        <div id="download-layout">
+          <div class="container"></div>
         </div>
       </div>
-
+      <!--/row-->
     </div>
-    <!--/span-->
-    <div id="download-layout">
-      <div class="container">
-        <div class="row clearfix">
-          <div class="col-md-12 column">
-            <nav class="navbar navbar-default" role="navigation">
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span><span
-                        class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                <a class="navbar-brand" href="#">Brand</a>
-              </div>
-
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                  <li class="active">
-                    <a href="#">Link</a>
-                  </li>
-                  <li>
-                    <a href="#">Link</a>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong
-                            class="caret"></strong></a>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a href="#">Action</a>
-                      </li>
-                      <li>
-                        <a href="#">Another action</a>
-                      </li>
-                      <li>
-                        <a href="#">Something else here</a>
-                      </li>
-                      <li class="divider">
-                      </li>
-                      <li>
-                        <a href="#">Separated link</a>
-                      </li>
-                      <li class="divider">
-                      </li>
-                      <li>
-                        <a href="#">One more separated link</a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-                <form class="navbar-form navbar-left" role="search">
-                  <div class="form-group">
-                    <input class="form-control" type="text">
-                  </div>
-                  <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-                <ul class="nav navbar-nav navbar-right">
-                  <li>
-                    <a href="#">Link</a>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong
-                            class="caret"></strong></a>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a href="#">Action</a>
-                      </li>
-                      <li>
-                        <a href="#">Another action</a>
-                      </li>
-                      <li>
-                        <a href="#">Something else here</a>
-                      </li>
-                      <li class="divider">
-                      </li>
-                      <li>
-                        <a href="#">Separated link</a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-
-            </nav>
-            <div class="jumbotron">
-              <h1>
-                Hello, world!
-              </h1>
-
+    <div
+      style="display: none;"
+      class="modal fade"
+      id="downloadModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="downloadModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+            >
+              ×
+            </button>
+            <h4 class="modal-title">Download</h4>
+          </div>
+          <div class="modal-body">
+            <div id="download-logged" class="">
+              <div class="alert alert-info">Copy and paste! Enjoy :)</div>
               <p>
-                This is a template for a simple marketing or informational website.
-                It includes a large callout called the hero unit and three supporting
-                pieces of content. Use it as a starting point to create something more
-                unique.
-              </p>
-
-              <p>
-                <a class="btn btn-primary btn-large" href="#">Learn more</a>
+                <textarea></textarea>
               </p>
             </div>
           </div>
-        </div>
-        <div class="row clearfix">
-          <div class="col-md-4 column">
-            <h2>
-              Heading
-            </h2>
-
-            <p>
-              Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-              tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-              massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-              euismod. Donec sed odio dui.
-            </p>
-
-            <p>
-              <a class="btn" href="#">View details »</a>
-            </p>
-          </div>
-          <div class="col-md-4 column">
-            <h2>
-              Heading
-            </h2>
-
-            <p>
-              Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-              tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-              massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-              euismod. Donec sed odio dui.
-            </p>
-
-            <p>
-              <a class="btn" href="#">View details »</a>
-            </p>
-          </div>
-          <div class="col-md-4 column">
-            <h2>
-              Heading
-            </h2>
-
-            <p>
-              Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-              tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-              massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-              euismod. Donec sed odio dui.
-            </p>
-
-            <p>
-              <a class="btn" href="#">View details »</a>
-            </p>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-success"
+              onclick="saveHtml()"
+              data-dismiss="modal"
+            >
+              Download
+            </button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              Close
+            </button>
           </div>
         </div>
+        <script type="text/javascript">
+          downloadLayoutSrc();
+        </script>
       </div>
     </div>
-  </div>
-  <!--/row-->
-</div>
-<div style="display: none;" class="modal fade" id="downloadModal" tabindex="-1" role="dialog"
-     aria-labelledby="downloadModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 class="modal-title">Download</h4>
-      </div>
-      <div class="modal-body">
-
-        <div id="download-logged" class="">
-          <div class="alert alert-info">Copy and paste! Enjoy :)
-          </div>
-          <p>
-				<textarea>&lt;div class="container"&gt;
-	&lt;div class="row clearfix"&gt;
-		&lt;div class="col-md-12 column"&gt;
-			&lt;nav class="navbar navbar-default" role="navigation"&gt;
-				&lt;div class="navbar-header"&gt;
-					 &lt;button type="button" class="navbar-toggle"
-data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"&gt;
-&lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;&lt;span
-class="icon-bar"&gt;&lt;/span&gt;&lt;span
-class="icon-bar"&gt;&lt;/span&gt;&lt;span
-class="icon-bar"&gt;&lt;/span&gt;&lt;/button&gt; &lt;a
-class="navbar-brand" href="#"&gt;Brand&lt;/a&gt;
-				&lt;/div&gt;
-
-				&lt;div class="collapse navbar-collapse"
-id="bs-example-navbar-collapse-1"&gt;
-					&lt;ul class="nav navbar-nav"&gt;
-						&lt;li class="active"&gt;
-							 &lt;a href="#"&gt;Link&lt;/a&gt;
-						&lt;/li&gt;
-						&lt;li&gt;
-							 &lt;a href="#"&gt;Link&lt;/a&gt;
-						&lt;/li&gt;
-						&lt;li class="dropdown"&gt;
-							 &lt;a href="#" class="dropdown-toggle"
-data-toggle="dropdown"&gt;Dropdown&lt;strong
-class="caret"&gt;&lt;/strong&gt;&lt;/a&gt;
-							&lt;ul class="dropdown-menu"&gt;
-								&lt;li&gt;
-									 &lt;a href="#"&gt;Action&lt;/a&gt;
-								&lt;/li&gt;
-								&lt;li&gt;
-									 &lt;a href="#"&gt;Another action&lt;/a&gt;
-								&lt;/li&gt;
-								&lt;li&gt;
-									 &lt;a href="#"&gt;Something else here&lt;/a&gt;
-								&lt;/li&gt;
-								&lt;li class="divider"&gt;
-								&lt;/li&gt;
-								&lt;li&gt;
-									 &lt;a href="#"&gt;Separated link&lt;/a&gt;
-								&lt;/li&gt;
-								&lt;li class="divider"&gt;
-								&lt;/li&gt;
-								&lt;li&gt;
-									 &lt;a href="#"&gt;One more separated link&lt;/a&gt;
-								&lt;/li&gt;
-							&lt;/ul&gt;
-						&lt;/li&gt;
-					&lt;/ul&gt;
-					&lt;form class="navbar-form navbar-left" role="search"&gt;
-						&lt;div class="form-group"&gt;
-							&lt;input class="form-control" type="text" /&gt;
-						&lt;/div&gt; &lt;button type="submit" class="btn
-btn-default"&gt;Submit&lt;/button&gt;
-					&lt;/form&gt;
-					&lt;ul class="nav navbar-nav navbar-right"&gt;
-						&lt;li&gt;
-							 &lt;a href="#"&gt;Link&lt;/a&gt;
-						&lt;/li&gt;
-						&lt;li class="dropdown"&gt;
-							 &lt;a href="#" class="dropdown-toggle"
-data-toggle="dropdown"&gt;Dropdown&lt;strong
-class="caret"&gt;&lt;/strong&gt;&lt;/a&gt;
-							&lt;ul class="dropdown-menu"&gt;
-								&lt;li&gt;
-									 &lt;a href="#"&gt;Action&lt;/a&gt;
-								&lt;/li&gt;
-								&lt;li&gt;
-									 &lt;a href="#"&gt;Another action&lt;/a&gt;
-								&lt;/li&gt;
-								&lt;li&gt;
-									 &lt;a href="#"&gt;Something else here&lt;/a&gt;
-								&lt;/li&gt;
-								&lt;li class="divider"&gt;
-								&lt;/li&gt;
-								&lt;li&gt;
-									 &lt;a href="#"&gt;Separated link&lt;/a&gt;
-								&lt;/li&gt;
-							&lt;/ul&gt;
-						&lt;/li&gt;
-					&lt;/ul&gt;
-				&lt;/div&gt;
-
-			&lt;/nav&gt;
-			&lt;div class="jumbotron"&gt;
-				&lt;h1&gt;
-					Hello, world!
-				&lt;/h1&gt;
-				&lt;p&gt;
-					This is a template for a simple marketing or informational website.
- It includes a large callout called the hero unit and three supporting
-pieces of content. Use it as a starting point to create something more
-unique.
-				&lt;/p&gt;
-				&lt;p&gt;
-					 &lt;a class="btn btn-primary btn-large" href="#"&gt;Learn
-more&lt;/a&gt;
-				&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div class="row clearfix"&gt;
-		&lt;div class="col-md-4 column"&gt;
-			&lt;h2&gt;
-				Heading
-			&lt;/h2&gt;
-			&lt;p&gt;
-				Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-euismod. Donec sed odio dui.
-			&lt;/p&gt;
-			&lt;p&gt;
-				 &lt;a class="btn" href="#"&gt;View details »&lt;/a&gt;
-			&lt;/p&gt;
-		&lt;/div&gt;
-		&lt;div class="col-md-4 column"&gt;
-			&lt;h2&gt;
-				Heading
-			&lt;/h2&gt;
-			&lt;p&gt;
-				Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-euismod. Donec sed odio dui.
-			&lt;/p&gt;
-			&lt;p&gt;
-				 &lt;a class="btn" href="#"&gt;View details »&lt;/a&gt;
-			&lt;/p&gt;
-		&lt;/div&gt;
-		&lt;div class="col-md-4 column"&gt;
-			&lt;h2&gt;
-				Heading
-			&lt;/h2&gt;
-			&lt;p&gt;
-				Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-euismod. Donec sed odio dui.
-			&lt;/p&gt;
-			&lt;p&gt;
-				 &lt;a class="btn" href="#"&gt;View details »&lt;/a&gt;
-			&lt;/p&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;</textarea>
-          </p>
-        </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success" onclick="saveHtml()" data-dismiss="modal">Download</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-    <script type="text/javascript">
-    downloadLayoutSrc();
-</script>
-  </div>
-
-</div>
-
-</body>
+  </body>
 </html>
