@@ -211,7 +211,6 @@ function downloadLayoutSrc() {
   }
   formatSrc = $.htmlClean($("#download-layout").html(), {
     format: true,
-    //allowedTags: ["z-widget"],
     allowedAttributes: [
       ["id"],
       ["class"],
@@ -234,27 +233,12 @@ function downloadLayoutSrc() {
 }
 
 function saveHtml() {
-  var cpath = window.location.href;
-  cpath = cpath.substring(0, cpath.lastIndexOf("/"));
-  webpage =
-    '<html>\n<head>\n<script type="text/javascript" src="' +
-    cpath +
-    '/js/jquery-2.0.0.min.js"></script>\n<script type="text/javascript" src="' +
-    cpath +
-    '/js/jquery-ui.js"></script>\n<link href="' +
-    cpath +
-    '/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">\n<script type="text/javascript" src="' +
-    cpath +
-    '/js/bootstrap.min.js"></script>\n</head>\n<body>\n' +
-    webpage +
-    "\n</body>\n</html>";
-  /* FM aka Vegetam Added the function that save the file in the directory Downloads. Work only to Chrome Firefox And IE*/
+  var randomNumber = Math.round(Math.random() * 100000);
+  var fileName = `template_${randomNumber}.cshtml`;
   if (
     navigator.appName == "Microsoft Internet Explorer" &&
     window.ActiveXObject
   ) {
-    var locationFile = location.href.toString();
-    var dlg = false;
     with (document) {
       ir = createElement("iframe");
       ir.id = "ifr";
@@ -267,14 +251,14 @@ function saveHtml() {
         write(webpage);
         close();
         document.charset = "utf-8";
-        dlg = execCommand("SaveAs", false, locationFile + "webpage.html");
+        dlg = execCommand("SaveAs", false, locationFile + fileName);
       }
       return dlg;
     }
   } else {
     webpage = webpage;
     var blob = new Blob([webpage], { type: "text/html;charset=utf-8" });
-    saveAs(blob, "webpage.html");
+    saveAs(blob, fileName);
   }
 }
 var currentDocument = null;

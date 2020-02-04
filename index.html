@@ -27,6 +27,7 @@
   </head>
 
   <body style="min-height: 824px;" class="edit">
+    <!--navbar-fixed-top -->
     <div class="navbar navbar-inverse navbar-fixed-top navbar-layoutit">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
@@ -79,329 +80,400 @@
       </ul>
       <!--/.navbar-collapse -->
     </div>
-    <!--/.navbar-fixed-top -->
     <div class="container">
       <div class="row">
-        <div class="">
-          <div class="sidebar-nav">
-            <ul class="nav nav-list accordion-group">
-              <li class="nav-header">
-                <div class="pull-right popover-info">
-                  <i class="glyphicon glyphicon-question-sign"></i>
+        <div class="sidebar-nav">
+          <ul class="nav nav-list accordion-group">
+            <li class="nav-header">
+              <div class="pull-right popover-info">
+                <i class="glyphicon glyphicon-question-sign"></i>
 
-                  <div class="popover fade right">
-                    <div class="arrow"></div>
-                    <h3 class="popover-title">help</h3>
+                <div class="popover fade right">
+                  <div class="arrow"></div>
+                  <h3 class="popover-title">help</h3>
 
-                    <div class="popover-content">
-                      Set your grid layout here, each grid has 12 columns,
-                      divided by space. See:
-                      <a href="http://getbootstrap.com/css/#grid"
-                        >BOOTSTRAP Grid System.</a
-                      >
-                    </div>
-                  </div>
-                </div>
-                <i class="glyphicon-plus glyphicon"></i>
-                Layout
-              </li>
-              <li class="rows" id="estRows">
-                <div class="lyrow ui-draggable">
-                  <a href="#close" class="remove label label-danger">
-                    <i class="glyphicon-remove glyphicon"></i>
-                    delete
-                  </a>
-                  <span class="drag label label-default">
-                    <i class="glyphicon glyphicon-move"></i>
-                    drag
-                  </span>
-
-                  <div class="preview">
-                    <input value="12" class="form-control" type="text" />
-                  </div>
-
-                  <div class="view">
-                    <div class="row clearfix">
-                      <div class="col-md-12 column"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="lyrow ui-draggable">
-                  <a href="#close" class="remove label label-danger">
-                    <i class="glyphicon-remove glyphicon"></i>
-                    delete
-                  </a>
-                  <span class="drag label label-default">
-                    <i class="glyphicon glyphicon-move"></i>
-                    drag
-                  </span>
-
-                  <div class="preview">
-                    <input value="6 6" class="form-control" type="text" />
-                  </div>
-
-                  <div class="view">
-                    <div class="row clearfix">
-                      <div class="col-md-6 column"></div>
-                      <div class="col-md-6 column"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="lyrow ui-draggable">
-                  <a href="#close" class="remove label label-danger">
-                    <i class="glyphicon-remove glyphicon"></i>
-                    delete
-                  </a>
-                  <span class="drag label label-default">
-                    <i class="glyphicon glyphicon-move"></i>
-                    drag
-                  </span>
-
-                  <div class="preview">
-                    <input value="8 4" class="form-control" type="text" />
-                  </div>
-
-                  <div class="view">
-                    <div class="row clearfix">
-                      <div class="col-md-8 column"></div>
-                      <div class="col-md-4 column"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="lyrow ui-draggable">
-                  <a href="#close" class="remove label label-danger">
-                    <i class="glyphicon-remove glyphicon"></i>
-                    delete
-                  </a>
-                  <span class="drag label label-default">
-                    <i class="glyphicon glyphicon-move"></i>
-                    drag
-                  </span>
-
-                  <div class="preview">
-                    <input value="4 4 4" class="form-control" type="text" />
-                  </div>
-
-                  <div class="view">
-                    <div class="row clearfix">
-                      <div class="col-md-4 column"></div>
-                      <div class="col-md-4 column"></div>
-                      <div class="col-md-4 column"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="lyrow ui-draggable">
-                  <a href="#close" class="remove label label-danger">
-                    <i class="glyphicon-remove glyphicon"></i>
-                    delete
-                  </a>
-                  <span class="drag label label-default">
-                    <i class="glyphicon glyphicon-move"></i>
-                    drag
-                  </span>
-
-                  <div class="preview">
-                    <input value="2 6 4" class="form-control" type="text" />
-                  </div>
-
-                  <div class="view">
-                    <div class="row clearfix">
-                      <div class="col-md-2 column"></div>
-                      <div class="col-md-6 column"></div>
-                      <div class="col-md-4 column"></div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-            <ul class="nav nav-list accordion-group">
-              <li class="nav-header">
-                <i class="glyphicon glyphicon-plus"></i>
-                Components
-                <div class="pull-right popover-info">
-                  <i class="glyphicon glyphicon-question-sign "></i>
-
-                  <div class="popover fade right">
-                    <div class="arrow"></div>
-                    <h3 class="popover-title">help</h3>
-
-                    <div class="popover-content">
-                      Drag the component to the grid columns and set the
-                      style.See:
-                      <a
-                        target="_blank"
-                        href="http://getbootstrap.com/components/"
-                        >components.</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="boxes" id="elmComponents">
-                <!-- Slider-->
-                <div class="box box-element ui-draggable">
-                  <a href="#close" class="remove label label-danger">
-                    <i class="glyphicon glyphicon-remove"></i>
-                    delete
-                  </a>
-                  <span class="drag label label-default">
-                    <i class="glyphicon glyphicon-move"></i>
-                    drag
-                  </span>
-                  <div class="preview">Slider</div>
-                  <div class="view">
-                    <div data-test-selector="divBannerSlider">
-                      <img
-                        src="http://localhost:3000/img/3.png"
-                        class="img-responsive"
-                      />
-                      <z-widget class="d-none">
-                        @Html.WidgetPartialAjax("BannerSlider", "Slider", "555",
-                        ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
-                        portalId)
-                      </z-widget>
-                    </div>
-                  </div>
-                </div>
-                <!--NewArrival Widget-->
-                <div class="box box-element ui-draggable">
-                  <a href="#close" class="remove label label-danger">
-                    <i class="glyphicon glyphicon-remove"></i>
-                    delete
-                  </a>
-                  <span class="drag label label-default">
-                    <i class="glyphicon glyphicon-move"></i>
-                    drag
-                  </span>
-                  <div class="preview">New Arrival</div>
-                  <div class="view">
-                    <div data-test-selector="divNewArrivalWidget">
-                      <img
-                        src="http://localhost:3000/img/header.png"
-                        class="img-responsive"
-                      />
-                      <z-widget class="d-none">
-                        @Html.WidgetPartialAjax("ProductList", "NewArrival",
-                        "666",
-                        ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
-                        portalId)
-                      </z-widget>
-                    </div>
-                  </div>
-                </div>
-                <div class="box box-element ui-draggable">
-                  <a href="#close" class="remove label label-danger">
-                    <i class="glyphicon glyphicon-remove"></i>
-                    delete
-                  </a>
-                  <span class="drag label label-default">
-                    <i class="glyphicon glyphicon-move"></i>
-                    drag
-                  </span>
-                  <div class="preview">Special Offers</div>
-                  <div class="view">
-                    <z-widget id="znode-special-offers" class="img-responsive">
-                      <img
-                        src="http://localhost:3000/img/offers.png"
-                        class="img-responsive"
-                      />
-                    </z-widget>
-                  </div>
-                </div>
-                <div class="box box-element ui-draggable">
-                  <a href="#close" class="remove label label-danger">
-                    <i class="glyphicon glyphicon-remove"></i>
-                    delete
-                  </a>
-                  <span class="drag label label-default">
-                    <i class="glyphicon glyphicon-move"></i>
-                    drag
-                  </span>
-                  <div class="preview">New Arrivals</div>
-                  <div class="view">
-                    <z-widget id="znode-new-arrivals" class="img-responsive">
-                      <img
-                        src="http://localhost:3000/img/new.png"
-                        class="img-responsive"
-                      />
-                    </z-widget>
-                  </div>
-                </div>
-                <div class="box box-element ui-draggable">
-                  <a href="#close" class="remove label label-danger">
-                    <i class="glyphicon glyphicon-remove"></i>
-                    delete
-                  </a>
-                  <span class="drag label label-default">
-                    <i class="glyphicon glyphicon-move"></i>
-                    drag
-                  </span>
-                  <div class="preview">Best Sellers</div>
-                  <div class="view">
-                    <z-widget id="znode-best-sellers" class="img-responsive">
-                      <img
-                        src="http://localhost:3000/img/best.png"
-                        class="img-responsive"
-                      />
-                    </z-widget>
-                  </div>
-                </div>
-                <div class="box box-element ui-draggable">
-                  <a href="#close" class="remove label label-danger">
-                    <i class="glyphicon glyphicon-remove"></i>
-                    delete
-                  </a>
-                  <span class="drag label label-default">
-                    <i class="glyphicon glyphicon-move"></i>
-                    drag
-                  </span>
-                  <div class="preview">Recommended Products</div>
-                  <div class="view">
-                    <z-widget
-                      id="znode-recommended-products"
-                      class="img-responsive"
+                  <div class="popover-content">
+                    Set your grid layout here, each grid has 12 columns, divided
+                    by space. See:
+                    <a href="http://getbootstrap.com/css/#grid"
+                      >BOOTSTRAP Grid System.</a
                     >
-                      <img
-                        src="http://localhost:3000/img/recommended.png"
-                        class="img-responsive"
-                      />
+                  </div>
+                </div>
+              </div>
+              <i class="glyphicon-plus glyphicon"></i>
+              Layout
+            </li>
+            <li class="rows" id="estRows">
+              <!-- Grid Col list-->
+              <div class="lyrow ui-draggable">
+                <a href="#close" class="remove label label-danger">
+                  <i class="glyphicon-remove glyphicon"></i>
+                  delete
+                </a>
+                <span class="drag label label-default">
+                  <i class="glyphicon glyphicon-move"></i>
+                  drag
+                </span>
+
+                <div class="preview">
+                  <input value="12" class="form-control" type="text" />
+                </div>
+
+                <div class="view">
+                  <div class="row clearfix">
+                    <div class="col-md-12 column"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="lyrow ui-draggable">
+                <a href="#close" class="remove label label-danger">
+                  <i class="glyphicon-remove glyphicon"></i>
+                  delete
+                </a>
+                <span class="drag label label-default">
+                  <i class="glyphicon glyphicon-move"></i>
+                  drag
+                </span>
+
+                <div class="preview">
+                  <input value="6 6" class="form-control" type="text" />
+                </div>
+
+                <div class="view">
+                  <div class="row clearfix">
+                    <div class="col-md-6 column"></div>
+                    <div class="col-md-6 column"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="lyrow ui-draggable">
+                <a href="#close" class="remove label label-danger">
+                  <i class="glyphicon-remove glyphicon"></i>
+                  delete
+                </a>
+                <span class="drag label label-default">
+                  <i class="glyphicon glyphicon-move"></i>
+                  drag
+                </span>
+
+                <div class="preview">
+                  <input value="8 4" class="form-control" type="text" />
+                </div>
+
+                <div class="view">
+                  <div class="row clearfix">
+                    <div class="col-md-8 column"></div>
+                    <div class="col-md-4 column"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="lyrow ui-draggable">
+                <a href="#close" class="remove label label-danger">
+                  <i class="glyphicon-remove glyphicon"></i>
+                  delete
+                </a>
+                <span class="drag label label-default">
+                  <i class="glyphicon glyphicon-move"></i>
+                  drag
+                </span>
+
+                <div class="preview">
+                  <input value="4 4 4" class="form-control" type="text" />
+                </div>
+
+                <div class="view">
+                  <div class="row clearfix">
+                    <div class="col-md-4 column"></div>
+                    <div class="col-md-4 column"></div>
+                    <div class="col-md-4 column"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="lyrow ui-draggable">
+                <a href="#close" class="remove label label-danger">
+                  <i class="glyphicon-remove glyphicon"></i>
+                  delete
+                </a>
+                <span class="drag label label-default">
+                  <i class="glyphicon glyphicon-move"></i>
+                  drag
+                </span>
+
+                <div class="preview">
+                  <input value="2 6 4" class="form-control" type="text" />
+                </div>
+
+                <div class="view">
+                  <div class="row clearfix">
+                    <div class="col-md-2 column"></div>
+                    <div class="col-md-6 column"></div>
+                    <div class="col-md-4 column"></div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <ul class="nav nav-list accordion-group">
+            <li class="nav-header">
+              <i class="glyphicon glyphicon-plus"></i>
+              Components
+              <div class="pull-right popover-info">
+                <i class="glyphicon glyphicon-question-sign "></i>
+
+                <div class="popover fade right">
+                  <div class="arrow"></div>
+                  <h3 class="popover-title">help</h3>
+
+                  <div class="popover-content">
+                    Drag the component to the grid columns and set the
+                    style.See:
+                    <a
+                      target="_blank"
+                      href="http://getbootstrap.com/components/"
+                      >components.</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- Widget list-->
+            <li class="boxes" id="elmComponents">
+              <!-- Banner Slider-->
+              <div class="box box-element ui-draggable">
+                <a href="#close" class="remove label label-danger">
+                  <i class="glyphicon glyphicon-remove"></i>
+                  delete
+                </a>
+                <span class="drag label label-default">
+                  <i class="glyphicon glyphicon-move"></i>
+                  drag
+                </span>
+                <div class="preview">Banner Slider</div>
+                <div class="view">
+                  <div data-test-selector="divBannerSlider">
+                    <img
+                      src="http://localhost:3000/img/banner.png"
+                      class="img-responsive"
+                    />
+                    <z-widget class="d-none">
+                      @Html.WidgetPartialAjax("BannerSlider", "Slider", "555",
+                      ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
+                      portalId)
                     </z-widget>
                   </div>
                 </div>
-                <div class="box box-element ui-draggable">
-                  <a href="#close" class="remove label label-danger">
-                    <i class="glyphicon glyphicon-remove"></i>
-                    delete
-                  </a>
-                  <span class="drag label label-default">
-                    <i class="glyphicon glyphicon-move"></i>
-                    drag
-                  </span>
-                  <div class="preview">Footer</div>
-                  <div class="view">
-                    <z-widget id="znode-footer" class="img-responsive">
-                      <img
-                        src="http://localhost:3000/img/footer.png"
-                        class="img-responsive"
-                      />
+              </div>
+
+              <!--Offer Banner Widget-->
+              <!-- <div class="box box-element ui-draggable">
+                <a href="#close" class="remove label label-danger">
+                  <i class="glyphicon glyphicon-remove"></i>
+                  delete
+                </a>
+                <span class="drag label label-default">
+                  <i class="glyphicon glyphicon-move"></i>
+                  drag
+                </span>
+                <div class="preview">Offer Banner</div>
+                <div class="view">
+                  <img
+                    src="http://localhost:3000/img/offers.png"
+                    class="img-responsive"
+                  />
+                  <div class="d-none" data-test-selector="lblStoreSpecials">
+                    <h3 data-test-selector="lblAdvertisementBannerMsg">
+                      @Html.RenderMessage(WebStoreConstants.StoreSpecialsTitle)
+                    </h3>
+                    <div data-test-selector="divAdvertisementBanner">
+                      <z-widget>
+                        @Html.WidgetPartialAjax("OfferBanner",
+                        "AdvertisementBanner", "110",
+                        ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
+                        portalId)
+                      </z-widget>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <!--Store special Widget-->
+              <div class="box box-element ui-draggable">
+                <a href="#close" class="remove label label-danger">
+                  <i class="glyphicon glyphicon-remove"></i>
+                  delete
+                </a>
+                <span class="drag label label-default">
+                  <i class="glyphicon glyphicon-move"></i>
+                  drag
+                </span>
+                <div class="preview">Store Specials</div>
+                <div class="view">
+                  <img
+                    src="http://localhost:3000/img/message.png"
+                    class="img-responsive"
+                  />
+                  <div class="d-none" data-test-selector="lblStoreSpecials">
+                    <div class="home-wide-promo">
+                      @Html.RenderMessage(WebStoreConstants.StoreSpecials)
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--New Arrival Widget-->
+              <div class="box box-element ui-draggable">
+                <a href="#close" class="remove label label-danger">
+                  <i class="glyphicon glyphicon-remove"></i>
+                  delete
+                </a>
+                <span class="drag label label-default">
+                  <i class="glyphicon glyphicon-move"></i>
+                  drag
+                </span>
+                <div class="preview">New Arrival</div>
+                <div class="view">
+                  <img
+                    src="http://localhost:3000/img/new.png"
+                    class="img-responsive"
+                  />
+                  <div class="d-none" data-test-selector="divNewArrivalWidget">
+                    <z-widget>
+                      @Html.WidgetPartialAjax("ProductList", "NewArrival",
+                      "666", ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
+                      portalId)
                     </z-widget>
                   </div>
                 </div>
-              </li>
-            </ul>
-          </div>
+              </div>
+
+              <!--Page Special Widget-->
+              <div class="box box-element ui-draggable">
+                <a href="#close" class="remove label label-danger">
+                  <i class="glyphicon glyphicon-remove"></i>
+                  delete
+                </a>
+                <span class="drag label label-default">
+                  <i class="glyphicon glyphicon-move"></i>
+                  drag
+                </span>
+                <div class="preview">Page Special</div>
+                <div class="view">
+                  <img
+                    src="http://localhost:3000/img/best.png"
+                    class="img-responsive"
+                  />
+                  <div
+                    class="d-none"
+                    data-test-selector="divBestSellProductList"
+                  >
+                    <z-widget>
+                      @Html.WidgetPartialAjax("ProductList", "HomePageSpecial",
+                      "667", ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
+                      portalId)
+                    </z-widget>
+                  </div>
+                </div>
+              </div>
+
+              <!--Category List Widget-->
+              <div class="box box-element ui-draggable">
+                <a href="#close" class="remove label label-danger">
+                  <i class="glyphicon glyphicon-remove"></i>
+                  delete
+                </a>
+                <span class="drag label label-default">
+                  <i class="glyphicon glyphicon-move"></i>
+                  drag
+                </span>
+                <div class="preview">Category List</div>
+                <div class="view">
+                  <img
+                    src="http://localhost:3000/img/category.png"
+                    class="img-responsive"
+                  />
+                  <div
+                    class="d-none"
+                    data-test-selector="divBestSellCategoryList"
+                  >
+                    <z-widget>
+                      @Html.WidgetPartialAjax("CategoryList", "CategoryList",
+                      "1992",
+                      ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
+                      portalId)
+                    </z-widget>
+                  </div>
+                </div>
+              </div>
+
+              <!--Brand List Widget-->
+              <div class="box box-element ui-draggable">
+                <a href="#close" class="remove label label-danger">
+                  <i class="glyphicon glyphicon-remove"></i>
+                  delete
+                </a>
+                <span class="drag label label-default">
+                  <i class="glyphicon glyphicon-move"></i>
+                  drag
+                </span>
+                <div class="preview">Brand List</div>
+                <div class="view">
+                  <img
+                    src="http://localhost:3000/img/recommended.png"
+                    class="img-responsive"
+                  />
+                  <!--Brand Widget-->
+                  <div class="d-none" data-test-selector="divBrandWidget">
+                    <z-widget>
+                      @Html.WidgetPartialAjax("BrandList", "BrandList", "9657",
+                      ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
+                      portalId)
+                    </z-widget>
+                  </div>
+                </div>
+              </div>
+
+              <!--Recently View Product Widget-->
+              <div class="box box-element ui-draggable">
+                <a href="#close" class="remove label label-danger">
+                  <i class="glyphicon glyphicon-remove"></i>
+                  delete
+                </a>
+                <span class="drag label label-default">
+                  <i class="glyphicon glyphicon-move"></i>
+                  drag
+                </span>
+                <div class="preview">Recently Viewed Items</div>
+                <div class="view">
+                  <img
+                    src="http://localhost:3000/img/recently-viewed.png"
+                    class="img-responsive"
+                  />
+                  <div
+                    class="d-none"
+                    data-test-selector="divRecentlyViewWidget"
+                  >
+                    <z-widget>
+                      @Html.WidgetPartialAjax("RecentlyViewProduct",
+                      "RecentlyViewProduct", "126",
+                      ZnodeCMSTypeofMappingEnum.PortalMapping.ToString())
+                    </z-widget>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
+        <!-- Container-->
         <div style="min-height: 800px;" class="demo ui-sortable"></div>
-        <!--/span-->
         <div id="download-layout">
           <div class="container"></div>
         </div>
       </div>
-      <!--/row-->
     </div>
     <div
       style="display: none;"
