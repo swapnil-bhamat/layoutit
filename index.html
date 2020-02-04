@@ -255,12 +255,12 @@
                 </span>
                 <div class="preview">Banner Slider</div>
                 <div class="view">
-                  <div data-test-selector="divBannerSlider">
-                    <img
-                      src="http://localhost:3000/img/banner.png"
-                      class="img-responsive"
-                    />
-                    <z-widget class="d-none">
+                  <img
+                    src="http://localhost:3000/img/banner.png"
+                    class="img-responsive img-remove"
+                  />
+                  <div class="d-none" data-test-selector="divBannerSlider">
+                    <z-widget>
                       @Html.WidgetPartialAjax("BannerSlider", "Slider", "555",
                       ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
                       portalId)
@@ -283,7 +283,7 @@
                 <div class="view">
                   <img
                     src="http://localhost:3000/img/offers.png"
-                    class="img-responsive"
+                    class="img-responsive img-remove"
                   />
                   <div class="d-none" data-test-selector="lblStoreSpecials">
                     <h3 data-test-selector="lblAdvertisementBannerMsg">
@@ -315,7 +315,7 @@
                 <div class="view">
                   <img
                     src="http://localhost:3000/img/message.png"
-                    class="img-responsive"
+                    class="img-responsive img-remove"
                   />
                   <div class="d-none" data-test-selector="lblStoreSpecials">
                     <div class="home-wide-promo">
@@ -339,7 +339,7 @@
                 <div class="view">
                   <img
                     src="http://localhost:3000/img/new.png"
-                    class="img-responsive"
+                    class="img-responsive img-remove"
                   />
                   <div class="d-none" data-test-selector="divNewArrivalWidget">
                     <z-widget>
@@ -365,7 +365,7 @@
                 <div class="view">
                   <img
                     src="http://localhost:3000/img/best.png"
-                    class="img-responsive"
+                    class="img-responsive img-remove"
                   />
                   <div
                     class="d-none"
@@ -394,7 +394,7 @@
                 <div class="view">
                   <img
                     src="http://localhost:3000/img/category.png"
-                    class="img-responsive"
+                    class="img-responsive img-remove"
                   />
                   <div
                     class="d-none"
@@ -424,7 +424,7 @@
                 <div class="view">
                   <img
                     src="http://localhost:3000/img/recommended.png"
-                    class="img-responsive"
+                    class="img-responsive img-remove"
                   />
                   <!--Brand Widget-->
                   <div class="d-none" data-test-selector="divBrandWidget">
@@ -451,7 +451,7 @@
                 <div class="view">
                   <img
                     src="http://localhost:3000/img/recently-viewed.png"
-                    class="img-responsive"
+                    class="img-responsive img-remove"
                   />
                   <div
                     class="d-none"

@@ -179,7 +179,7 @@ function downloadLayoutSrc() {
     .children()
     .html($(".demo").html());
   var t = $("#download-layout").children();
-  t.find(".preview, .configuration, .drag, .remove").remove();
+  t.find(".preview, .configuration, .drag, .remove, .img-remove").remove();
   t.find(".lyrow").addClass("removeClean");
   t.find(".box-element").addClass("removeClean");
   t.find(".lyrow .lyrow .lyrow .lyrow .lyrow .removeClean").each(function() {
@@ -232,9 +232,26 @@ function downloadLayoutSrc() {
   webpage = formatSrc;
 }
 
-function saveHtml() {
+var getAddedCustomModelHTML = function() {
+  return (
+    ` @using Znode.Engine.WebStore.Agents
+      @{
+          int portalId = PortalAgent.CurrentPortal.PortalId;
+      }
+
+
+      ` + webpage
+  );
+};
+
+var getFileName = function() {
   var randomNumber = Math.round(Math.random() * 100000);
-  var fileName = `template_${randomNumber}.cshtml`;
+  return `template_${randomNumber}.cshtml`;
+};
+
+function saveHtml() {
+  var html = getAddedCustomModelHTML();
+  var fileName = getFileName();
   if (
     navigator.appName == "Microsoft Internet Explorer" &&
     window.ActiveXObject
@@ -248,7 +265,7 @@ function saveHtml() {
       with (getElementById("ifr").contentWindow.document) {
         open("text/html", "replace");
         charset = "utf-8";
-        write(webpage);
+        write(html);
         close();
         document.charset = "utf-8";
         dlg = execCommand("SaveAs", false, locationFile + fileName);
@@ -256,8 +273,7 @@ function saveHtml() {
       return dlg;
     }
   } else {
-    webpage = webpage;
-    var blob = new Blob([webpage], { type: "text/html;charset=utf-8" });
+    var blob = new Blob([html], { type: "text/html;charset=utf-8" });
     saveAs(blob, fileName);
   }
 }
@@ -266,7 +282,7 @@ var timerSave = 2e3;
 var demoHtml = $(".demo").html();
 $(window).resize(function() {
   $("body").css("min-height", $(window).height() - 90);
-  $(".demo").css("min-height", $(window).height() - 160);
+  $(".demo").css("min-height", $(window).height() - 90);
 });
 $(document).ready(function() {
   $("body").css("min-height", $(window).height() - 90);
