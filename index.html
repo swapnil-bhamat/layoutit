@@ -4,7 +4,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
-    <title>zNode - Layout Creator</title>
+    <title>Znode - Page Creator</title>
     <meta name="keywords" content="bootstrap,ibootstrap,bootstrap,layout" />
     <meta name="description" content="LayoutIt! draggable" />
 
@@ -30,19 +30,12 @@
     <!--navbar-fixed-top -->
     <div class="navbar navbar-inverse navbar-fixed-top navbar-layoutit">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">
-          <img src="./img/favicon.png" />
-          zNode Layout
-        </a>
+        <a class="navbar-brand" href="#">Znode Page Creator </a>
       </div>
       <ul class="nav navbar-nav" id="menu-layoutit">
         <li>
           <div class="btn-group" data-toggle="buttons-radio">
-            <button
-              type="button"
-              id="edit"
-              class="btn btn-primary btn-sm active"
-            >
+            <button type="button" id="edit" class="btn btn-info btn-sm active">
               <i class="glyphicon glyphicon-edit"></i>
               Edit
             </button>
@@ -62,14 +55,28 @@
           <div class="btn-group">
             <button
               type="button"
-              class="btn btn-primary btn-sm"
+              class="btn btn-info btn-sm"
+              onclick="saveHtml()"
+              role="button"
+              data-toggle="modal"
+            >
+              <i class="glyphicon glyphicon-download"></i>
+              Download
+            </button>
+            <button
+              type="button"
+              class="btn btn-info btn-sm"
               id="button-download-modal"
               data-target="#downloadModal"
               role="button"
               data-toggle="modal"
             >
-              <i class="glyphicon glyphicon-share"></i>
-              Share
+              <i class="glyphicon glyphicon-file"></i>
+              Code
+            </button>
+            <button type="button" class="btn btn-success btn-sm" role="button">
+              <i class="glyphicon glyphicon-upload"></i>
+              Publish
             </button>
             <button class="btn btn-danger btn-sm" href="#clear" id="clear">
               <i class="glyphicon glyphicon-trash"></i>
@@ -261,7 +268,7 @@
                   />
                   <div class="d-none" data-test-selector="divBannerSlider">
                     <z-widget>
-                      @Html.WidgetPartialAjax("BannerSlider", "Slider", "555",
+                      @Html.WidgetPartialAjax("BannerSlider", "Slider", "111",
                       ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
                       portalId)
                     </z-widget>
@@ -292,7 +299,7 @@
                     <div data-test-selector="divAdvertisementBanner">
                       <z-widget>
                         @Html.WidgetPartialAjax("OfferBanner",
-                        "AdvertisementBanner", "110",
+                        "AdvertisementBanner", "222",
                         ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
                         portalId)
                       </z-widget>
@@ -344,7 +351,7 @@
                   <div class="d-none" data-test-selector="divNewArrivalWidget">
                     <z-widget>
                       @Html.WidgetPartialAjax("ProductList", "NewArrival",
-                      "666", ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
+                      "333", ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
                       portalId)
                     </z-widget>
                   </div>
@@ -373,7 +380,7 @@
                   >
                     <z-widget>
                       @Html.WidgetPartialAjax("ProductList", "HomePageSpecial",
-                      "667", ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
+                      "444", ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
                       portalId)
                     </z-widget>
                   </div>
@@ -402,8 +409,7 @@
                   >
                     <z-widget>
                       @Html.WidgetPartialAjax("CategoryList", "CategoryList",
-                      "1992",
-                      ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
+                      "555", ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
                       portalId)
                     </z-widget>
                   </div>
@@ -429,7 +435,7 @@
                   <!--Brand Widget-->
                   <div class="d-none" data-test-selector="divBrandWidget">
                     <z-widget>
-                      @Html.WidgetPartialAjax("BrandList", "BrandList", "9657",
+                      @Html.WidgetPartialAjax("BrandList", "BrandList", "666",
                       ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
                       portalId)
                     </z-widget>
@@ -459,9 +465,84 @@
                   >
                     <z-widget>
                       @Html.WidgetPartialAjax("RecentlyViewProduct",
-                      "RecentlyViewProduct", "126",
+                      "RecentlyViewProduct", "777",
                       ZnodeCMSTypeofMappingEnum.PortalMapping.ToString())
                     </z-widget>
+                  </div>
+                </div>
+              </div>
+
+              <!--Advertisement Banner Widget-->
+              <div class="box box-element ui-draggable">
+                <a href="#close" class="remove label label-danger">
+                  <i class="glyphicon glyphicon-remove"></i>
+                  delete
+                </a>
+                <span class="drag label label-default">
+                  <i class="glyphicon glyphicon-move"></i>
+                  drag
+                </span>
+                <div class="preview">Advertisement Banner</div>
+                <div class="view">
+                  <img
+                    src="http://localhost:3000/img/recently-viewed.png"
+                    class="img-responsive img-remove"
+                  />
+                  <div class="d-none">
+                    <z-widget
+                      >@Html.WidgetPartial("TemplateTextEditor", "AdvBanner",
+                      "888", "ContentPageMapping", (int)Model)</z-widget
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!--Content Page Widget-->
+              <div class="box box-element ui-draggable">
+                <a href="#close" class="remove label label-danger">
+                  <i class="glyphicon glyphicon-remove"></i>
+                  delete
+                </a>
+                <span class="drag label label-default">
+                  <i class="glyphicon glyphicon-move"></i>
+                  drag
+                </span>
+                <div class="preview">Content Page</div>
+                <div class="view">
+                  <img
+                    src="http://localhost:3000/img/recently-viewed.png"
+                    class="img-responsive img-remove"
+                  />
+                  <div class="d-none">
+                    <z-widget
+                      >@Html.WidgetPartial("TemplateTextEditor", "ContentPage",
+                      "999", "ContentPageMapping", (int)Model)</z-widget
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!--Search Widget-->
+              <div class="box box-element ui-draggable">
+                <a href="#close" class="remove label label-danger">
+                  <i class="glyphicon glyphicon-remove"></i>
+                  delete
+                </a>
+                <span class="drag label label-default">
+                  <i class="glyphicon glyphicon-move"></i>
+                  drag
+                </span>
+                <div class="preview">Search Widget</div>
+                <div class="view">
+                  <img
+                    src="http://localhost:3000/img/recently-viewed.png"
+                    class="img-responsive img-remove"
+                  />
+                  <div class="d-none">
+                    <z-widget
+                      >@Html.WidgetPartial("SearchWidget", "SearchWidget",
+                      "1010", "ContentPageMapping", (int)Model)</z-widget
+                    >
                   </div>
                 </div>
               </div>
@@ -495,11 +576,10 @@
             >
               ×
             </button>
-            <h4 class="modal-title">Download</h4>
+            <h4 class="modal-title">Code Preview</h4>
           </div>
           <div class="modal-body">
-            <div id="download-logged" class="">
-              <div class="alert alert-info">Copy and paste! Enjoy :)</div>
+            <div id="download-logged">
               <p>
                 <textarea></textarea>
               </p>
@@ -508,14 +588,10 @@
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-success"
-              onclick="saveHtml()"
+              class="btn btn-danger btn-sm"
               data-dismiss="modal"
             >
-              Download
-            </button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">
-              Close
+              <i class="glyphicon glyphicon-remove"></i> Close
             </button>
           </div>
         </div>

@@ -235,6 +235,8 @@ function downloadLayoutSrc() {
 var getAddedCustomModelHTML = function() {
   return (
     ` @using Znode.Engine.WebStore.Agents
+      @using Znode.Libraries.ECommerce.Utilities
+      @model Int32
       @{
           int portalId = PortalAgent.CurrentPortal.PortalId;
       }
