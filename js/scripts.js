@@ -323,9 +323,9 @@ $(document).ready(function() {
     e.preventDefault();
     downloadLayoutSrc();
   });
-  $("#download").click(function() {
-    downloadLayout();
-    return false;
+  $("#downloadCode").click(function() {
+    downloadLayoutSrc();
+    saveHtml();
   });
   $("#downloadhtml").click(function() {
     downloadHtmlLayout();
