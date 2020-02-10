@@ -190,7 +190,6 @@ body {
 }
 .demo .box .view {
   display: block;
-  padding-top: 30px;
 }
 
 .ui-draggable-dragging .view {
@@ -326,8 +325,9 @@ body {
   border: 1px solid #dddddd;
   border-radius: 4px 4px 4px 4px;
   margin: 15px 0;
-  padding: 25px 10px 20px;
+  padding: 5px;
   position: relative;
+  min-height: 70px;
 }
 
 /* preview */
