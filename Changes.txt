@@ -7,12 +7,12 @@
 }
 
 Add provision to change this item dynamically.
-	Key (Generate widget key for z-widget if it is not there is placeholder present.)
-	Display Name
-	MappingType ("ContentPageMapping" | "PortalMapping")
-	WidgetPartialAjax | WidgetPartial
-	CSS Height
+	* Key (Generate widget key for z-widget if it is not there is placeholder present.)
+	* Display Name
+	* MappingType ("ContentPageMapping" | "PortalMapping")
+			Following things that needs to be added while adding MappingType value.
+				ContentPageMapping -> contentPageId
+				PortalMapping -> portalId
+	* WidgetPartialAjax | WidgetPartial
+	* CSS Height
 
-Following things that needs to be added while adding MappingType value.
-	ContentPageMapping -> contentPageId
-	PortalMapping -> portalId
