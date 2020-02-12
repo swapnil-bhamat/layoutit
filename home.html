@@ -266,7 +266,10 @@
                     src="./img/banner.png"
                     class="img-responsive img-remove"
                   />
-                  <div class="d-none" data-test-selector="divBannerSlider">
+                  <div
+                    class="display-none"
+                    data-test-selector="divBannerSlider"
+                  >
                     <z-widget>
                       @Html.WidgetPartialAjax("BannerSlider", "Slider", "111",
                       ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
@@ -292,7 +295,7 @@
                     src="./img/offers.png"
                     class="img-responsive img-remove"
                   />
-                  <div class="d-none" data-test-selector="lblStoreSpecials">
+                  <div class="display-none" data-test-selector="lblStoreSpecials">
                     <h3 data-test-selector="lblAdvertisementBannerMsg">
                       @Html.RenderMessage(WebStoreConstants.StoreSpecialsTitle)
                     </h3>
@@ -324,7 +327,10 @@
                     src="./img/message.png"
                     class="img-responsive img-remove"
                   />
-                  <div class="d-none" data-test-selector="lblStoreSpecials">
+                  <div
+                    class="display-none"
+                    data-test-selector="lblStoreSpecials"
+                  >
                     <div class="home-wide-promo">
                       @Html.RenderMessage(WebStoreConstants.StoreSpecials)
                     </div>
@@ -345,7 +351,10 @@
                 <div class="preview">New Arrival</div>
                 <div class="view">
                   <img src="./img/new.png" class="img-responsive img-remove" />
-                  <div class="d-none" data-test-selector="divNewArrivalWidget">
+                  <div
+                    class="display-none"
+                    data-test-selector="divNewArrivalWidget"
+                  >
                     <z-widget>
                       @Html.WidgetPartialAjax("ProductList", "NewArrival",
                       "333", ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
@@ -369,7 +378,7 @@
                 <div class="view">
                   <img src="./img/best.png" class="img-responsive img-remove" />
                   <div
-                    class="d-none"
+                    class="display-none"
                     data-test-selector="divBestSellProductList"
                   >
                     <z-widget>
@@ -398,7 +407,7 @@
                     class="img-responsive img-remove"
                   />
                   <div
-                    class="d-none"
+                    class="display-none"
                     data-test-selector="divBestSellCategoryList"
                   >
                     <z-widget>
@@ -427,7 +436,7 @@
                     class="img-responsive img-remove"
                   />
                   <!--Brand Widget-->
-                  <div class="d-none" data-test-selector="divBrandWidget">
+                  <div class="display-none" data-test-selector="divBrandWidget">
                     <z-widget>
                       @Html.WidgetPartialAjax("BrandList", "BrandList", "666",
                       ZnodeCMSTypeofMappingEnum.PortalMapping.ToString(),
@@ -454,7 +463,7 @@
                     class="img-responsive img-remove"
                   />
                   <div
-                    class="d-none"
+                    class="display-none"
                     data-test-selector="divRecentlyViewWidget"
                   >
                     <z-widget>
@@ -482,7 +491,7 @@
                     src="./img/recently-viewed.png"
                     class="img-responsive img-remove"
                   />
-                  <div class="d-none">
+                  <div class="display-none">
                     <z-widget
                       >@Html.WidgetPartial("TemplateTextEditor", "AdvBanner",
                       "888", "ContentPageMapping", (int)Model)</z-widget
@@ -507,7 +516,7 @@
                     src="./img/recently-viewed.png"
                     class="img-responsive img-remove"
                   />
-                  <div class="d-none">
+                  <div class="display-none">
                     <z-widget
                       >@Html.WidgetPartial("TemplateTextEditor", "ContentPage",
                       "999", "ContentPageMapping", (int)Model)</z-widget
@@ -532,7 +541,7 @@
                     src="./img/recently-viewed.png"
                     class="img-responsive img-remove"
                   />
-                  <div class="d-none">
+                  <div class="display-none">
                     <z-widget
                       >@Html.WidgetPartial("SearchWidget", "SearchWidget",
                       "1010", "ContentPageMapping", (int)Model)</z-widget
