@@ -238,7 +238,8 @@ var getAddedCustomModelHTML = function() {
       @using Znode.Libraries.ECommerce.Utilities
       @model Int32
       @{
-          int portalId = PortalAgent.CurrentPortal.PortalId;
+          int portalId = (int)PortalAgent.CurrentPortal.PortalId;
+          int contentPageId = (int)ViewBag.contentPageId;
       }
 
 

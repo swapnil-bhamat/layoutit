@@ -1,10 +1,11 @@
-@using Znode.Engine.WebStore.Agents
-@using Znode.Libraries.ECommerce.Utilities
-@model Int32
-@{
-    int portalId = (int)PortalAgent.CurrentPortal.PortalId;
-	  int contentPageId = (int)ViewBag.contentPageId;
-}
+Add following model every time.
+	@using Znode.Engine.WebStore.Agents
+	@using Znode.Libraries.ECommerce.Utilities
+	@model Int32
+	@{
+			int portalId = (int)PortalAgent.CurrentPortal.PortalId;
+			int contentPageId = (int)ViewBag.contentPageId;
+	}
 
 Add provision to change this item dynamically.
 	* Key (Generate widget key for z-widget if it is not there is placeholder present.)
